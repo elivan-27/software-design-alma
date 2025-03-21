@@ -1,0 +1,32 @@
+<% content_for :title, "Show User" %>
+
+<div class="container mt-4">
+  <h1 class="text-center mb-4">Detalles del Usuario</h1>
+
+  <!-- Mensaje de notificación (si existe) -->
+  <% if notice.present? %>
+    <p class="alert alert-success"><%= notice %></p>
+  <% end %>
+
+  <!-- Card con estilos mejorados -->
+  <div class="card mx-auto" style="max-width: 600px;">
+    <div class="card-body">
+      <!-- Mostrar la imagen del usuario -->
+      <%= image_tag 'default-avatar.jpg', class: "card-img-top mb-3", style: "width: 100%; height: auto;" %> 
+      
+      <!-- Detalles del usuario -->
+      <h5 class="card-title"><strong>Nombre:</strong> <%= @user.name %></h5>
+      <p class="card-text"><strong>Email:</strong> <%= @user.email %></p>
+      <p class="card-text"><strong>Edad:</strong> <%= @user.age %></p>
+
+      <!-- Enlaces de acciones con botones separados -->
+      <div class="mt-3">
+        <%= link_to "Editar usuario", edit_user_path(@user), class: "btn btn-warning mb-2 w-100" %>
+        <%= link_to "Volver a la lista", users_path, class: "btn btn-secondary mb-2 w-100" %>
+
+        <!-- Botón de eliminación con confirmación -->
+        <%= button_to "Borrar este usuario", @user, method: :delete, data: { confirm: "¿Estás seguro de que deseas eliminar este usuario?" }, class: "btn btn-danger w-100" %>
+      </div>
+    </div>
+  </div>
+</div>

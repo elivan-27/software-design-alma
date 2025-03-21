@@ -1,0 +1,26 @@
+<% content_for :title, "Users" %>
+
+<div class="container mt-4">
+  <h1 class="text-center mb-4">Lista de usuarios</h1>
+
+  <div id="users" class="row">
+    <% @users.each do |user| %>
+      <div class="col-md-4 mb-4">
+        <div class="card" style="width: 14rem;"> <!-- Ajusta el ancho de la tarjeta -->
+          <div class="card-body">
+            <!-- Ajustar el ancho de la imagen -->
+            <%= image_tag 'default-avatar.jpg', class: "card-img-top mb-2" %> <!-- 75% del ancho de la tarjeta -->
+            <h4 class="card-title"><%= user.name %></h4>
+            <h6 class="card-subtitle mb-2 text-muted"><%= user.email %></h6>
+            <p class="card-text">Edad: <%= user.age %></p>
+            <%= link_to "Ver este usuario", user, class: "btn btn-primary" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="text-center mt-4">
+    <%= link_to "Crear nuevo usuario", new_user_path, class: "btn btn-success" %>
+  </div>
+</div>
