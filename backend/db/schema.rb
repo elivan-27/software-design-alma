@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_03_17_162527) do
+ActiveRecord::Schema[8.0].define(version: 2025_04_25_203424) do
+  create_table "t_shirts", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.string "size"
+    t.string "color"
+    t.decimal "price"
+    t.integer "stock"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
