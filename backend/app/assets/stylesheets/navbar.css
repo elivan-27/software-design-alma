@@ -1,0 +1,50 @@
+/* app/assets/stylesheets/navbar.css */
+
+body[data-theme="dark"] .navbar {
+  background-color: #ffffff;
+  color: black;
+}
+
+body[data-theme="light"] .navbar {
+  background-color: black;
+  color: white;
+}
+
+/* *Modificar el logo a negro solido si el tema es light */
+body[data-theme="dark"] .img-logo {
+  filter: brightness(0) grayscale(100%) contrast(100%);
+}
+
+.nav-link.active {
+  color: inherit;
+}
+
+.nvi:hover {
+  color: darkgoldenrod;
+}
+
+/* Mejorar el dropdown */
+.dropdown-menu {
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 0.5rem 0;
+  background-color: #ffffff;
+  min-width: 200px;
+}
+
+/* Mejorar los ítems */
+.dropdown-item {
+  padding: 0.7rem 1.2rem;
+  font-weight: 500;
+  font-family: 'Inter', sans-serif; /* O Montserrat si prefieres */
+  color: #333;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+/* Hover sobre los ítems */
+.dropdown-item:hover {
+  background-color: transparent;
+  color: darkgoldenrod;
+  border-radius: 8px;
+  font-weight: bold;
+}

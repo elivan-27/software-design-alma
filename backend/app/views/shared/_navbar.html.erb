@@ -1,0 +1,51 @@
+<nav class="navbar navbar-expand-lg shadow-sm mb-3 px-5" id="navbar">
+  <div class="container-fluid d-flex align-items-center justify-content-between">
+
+    <!-- Logo a la izquierda -->
+    <div class="d-flex align-items-center">
+      <a class="navbar-brand" href="/home">
+        <%= image_tag("logo.png", class: "img-logo img-fluid rounded", style: "width: 100px;", alt: "Logo") %>
+      </a>
+    </div>
+
+    <!-- Opciones al centro -->
+    <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+      <ul class="navbar-nav">
+
+        <li class="nvi fs-5 fw-bold nav-item">
+          <a class="nav-link active" href="/about">
+            <%= t('new_arrivals') %>
+          </a>
+        </li>
+
+        <li class="nvi mx-5 nav-item dropdown">
+          <button class="fs-5 fw-bold nav-link active dropdown-toggle" id="catalogDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="background: none; border: none;">
+            <%= t('catalog') %>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="catalogDropdown">
+            <li><a class="dropdown-item" href="/categories"><%= t('t-shirts') %></a></li>
+            <li><a class="dropdown-item" href="/categories"><%= t('mugs') %></a></li>
+            <li><a class="dropdown-item" href="/categories"><%= t('keychains') %></a></li>
+            <li><a class="dropdown-item" href="/categories"><%= t('cushions') %></a></li>
+            <li><a class="dropdown-item" href="/categories"><%= t('tote_bags') %></a></li>
+            <li><a class="dropdown-item" href="/categories"><%= t('phone_cases') %></a></li>
+            <li><a class="dropdown-item" href="/categories"><%= t('stone_photos') %></a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a class="fs-5 fw-bold nav-link active nvi" href="/contact">
+            <%= t('customize') %>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Iconos a la derecha -->
+    <div class="d-flex align-items-center gap-3">
+      <i class="nvi bi bi-person" style="font-size: 1.7rem; cursor: pointer;"></i>
+      <i class="nvi mx-4 bi bi-bag" style="font-size: 1.5rem; cursor: pointer;"></i>
+      <i id="theme-toggle" class="nvi bi bi-sun" style="cursor: pointer; font-size: 1.5rem;"></i>
+    </div>
+  </div>
+</nav>
