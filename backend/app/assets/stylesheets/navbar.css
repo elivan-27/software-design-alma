@@ -48,3 +48,9 @@ body[data-theme="dark"] .img-logo {
   border-radius: 8px;
   font-weight: bold;
 }
+
+.navbar-toggler:focus {
+  color: darkgoldenrod;
+  box-shadow: none; /* Quita ese borde blanco feo */
+  outline: none;
+}
