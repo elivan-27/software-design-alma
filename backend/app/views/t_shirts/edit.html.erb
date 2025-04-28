@@ -1,0 +1,12 @@
+<% content_for :title, "Editing t shirt" %>
+
+<h1>Editing t shirt</h1>
+
+<%= render "form", t_shirt: @t_shirt %>
+
+<br>
+
+<div>
+  <%= link_to "Show this t shirt", @t_shirt %> |
+  <%= link_to "Back to t shirts", t_shirts_path %>
+</div>
