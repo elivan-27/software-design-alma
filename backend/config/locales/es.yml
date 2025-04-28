@@ -27,18 +27,19 @@
 #       "yes": yup
 #       enabled: "ON"
 
-en:
+es:
   #TODO: Opciones
-  new_arrivals: New arrivals
-  catalog: Catalog
-  customize: Customize your combo
+  new_arrivals: "Lo más nuevo"
+  catalog: "Catalogo"
+  customize: "Personaliza tu combo"
 
   #TODO: Productos a vender
-  t-shirts: T-shirts
-  mugs: Mugs
-  mousepads: Mousepads
-  keychains: Keychains
-  cushions: Cushions
-  tote_bags: Tote bags
-  phone_cases: Phone cases
-  stone_photos: Stone Photos
+  t-shirts: Camisetas
+  mugs: Tazas
+  mousepads: Alfombrillas de ratón
+  keychains: Llaveros
+  cushions: Cojines
+  tote_bags: Bolsas de tela
+  phone_cases: Fundas para teléfonos
+  stone_photos: Fotos en piedra
+

@@ -1,0 +1,71 @@
+<nav class="navbar navbar-expand-lg shadow-sm mb-3 px-3 px-lg-5" id="navbar">
+  <div class="container-fluid d-flex align-items-center justify-content-between">
+
+    <!-- Botón hamburguesa (izquierda) -->
+    <button class="navbar-toggler border-0 me-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" style="color: inherit;">
+      <i class="nvi bi bi-list" style="font-size: 2rem;"></i>
+    </button>
+
+    <!-- Logo (derecha en mobile, izquierda en desktop) -->
+    <div class="mx-lg-0">
+      <a class="navbar-brand" href="/home">
+        <%= image_tag("logo.png", class: "img-logo img-fluid rounded", style: "width: 100px;", alt: "Logo") %>
+      </a>
+    </div>
+
+    <!-- Opciones del menú -->
+    <div class="collapse navbar-collapse justify-content-center order-lg-2" id="navbarNav">
+      <ul class="navbar-nav">
+
+        <li class="nvi fs-5 fw-bold nav-item">
+          <a class="nav-link active" href="/new_arrivals">
+            <%= t('new_arrivals') %>
+          </a>
+        </li>
+
+        <li class="nvi mx-lg-5 nav-item dropdown">
+          <button class="fs-5 fw-bold nav-link active dropdown-toggle" id="catalogDropdown" role="button"
+            data-bs-toggle="dropdown" aria-expanded="false" style="background: none; border: none;">
+            <%= t('catalog') %>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="catalogDropdown">
+            <li><a class="dropdown-item" href="/t-shirts"><%= t('t-shirts') %></a></li>
+            <li><a class="dropdown-item" href="/mugs"><%= t('mugs') %></a></li>
+            <li><a class="dropdown-item" href="/keychains"><%= t('keychains') %></a></li>
+            <li><a class="dropdown-item" href="/cushions"><%= t('cushions') %></a></li>
+            <li><a class="dropdown-item" href="/tote_bags"><%= t('tote_bags') %></a></li>
+            <li><a class="dropdown-item" href="/phone_cases"><%= t('phone_cases') %></a></li>
+            <li><a class="dropdown-item" href="/stone_photos"><%= t('stone_photos') %></a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a class="fs-5 fw-bold nav-link active nvi" href="/customize">
+            <%= t('customize') %>
+          </a>
+        </li>
+
+        <!-- Iconos debajo de las opciones del menú solo en pantallas pequeñas -->
+        <div class="d-flex mt-3 flex-row align-items-center d-lg-none">
+          <a href="/profile" class="text-decoration-none text-reset">
+            <i class="nvi bi bi-person" style="font-size: 1.7rem; cursor: pointer;" tabindex="0"></i>
+          </a>
+          <i class="nvi mx-5 bi bi-bag" style="font-size: 1.5rem; cursor: pointer;" tabindex="0"></i>
+          <i id="theme-toggle" class="nvi bi bi-sun" style="cursor: pointer; font-size: 1.5rem;" tabindex="0"></i>
+        </div>
+
+      </ul>
+    </div>
+
+    <!-- Iconos a la derecha solo en pantallas grandes -->
+    <div class="d-flex align-items-center gap-3 order-lg-3 ms-auto d-none d-lg-flex">
+      <a href="/profile" class="text-decoration-none text-reset">
+        <i class="nvi bi bi-person" style="font-size: 1.7rem; cursor: pointer;" tabindex="0"></i>
+      </a>
+      <i class="nvi mx-2 bi bi-bag" style="font-size: 1.5rem; cursor: pointer;" tabindex="0"></i>
+      <i id="theme-toggle-xl" class="nvi bi bi-sun" style="cursor: pointer; font-size: 1.5rem;" tabindex="0"></i>
+    </div>
+
+  </div>
+</nav>

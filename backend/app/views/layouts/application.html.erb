@@ -16,37 +16,54 @@
     <link rel="icon" href="/icon.png" type="image/png">
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
+
     <!-- Enlace al archivo CSS de Bootstrap desde el CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"></script>
 
-    <%# Includes all stylesheet files in app/assets/stylesheets %>
+    <!-- Enlace a la fuente de Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+
+    <%# Control de temas (Modo oscuro y modo claro) %>
+    <style>
+      html[data-theme="dark"],
+      html[data-theme="light"] {
+        color: inherit;
+        background-color: inherit;
+      }
+
+      body[data-theme="dark"] {
+        background-color: #121212;
+        color: white;
+      }
+      body[data-theme="light"] {
+        background-color: white;
+        color: black;
+      }
+
+      body{
+        transition: background-color 0.3s, color 0.3s;
+      }
+    </style>
+    <script>
+      (function() {
+        try {
+          const theme = localStorage.getItem('theme') || 'light';
+          document.body.setAttribute('data-theme', theme);
+        } catch(e) {
+          document.body.setAttribute('data-theme', 'light');
+        }
+      })();
+    </script>
   </head>
 
   <body>
     <!-- Barra de navegación -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm mb-3">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="/home">Home</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/users">Usuarios</a>
-            </li>
-            <!-- <li class="nav-item">-->
-            <!--   <a class="nav-link" href="/about">Users</a>-->
-            <!-- </li>-->
-            <!-- <li class="nav-item">-->
-            <!--   <a class="nav-link" href="/contact">Contact</a>-->
-            <!-- </li>-->
-          </ul>
-        </div>
-      </div>
-    </nav>
+    <%= render "shared/navbar" %>
     <%= yield %>
   </body>
 </html>
