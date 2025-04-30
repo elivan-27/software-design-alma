@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
+  get "profile/show"
   scope "(:locale)", locale: /en|es/ do
-    resources :users
-  
+    # Rutas de Devise
+    devise_for :users
+    get 'profile', to: 'profile#show'
+
+    # Rutas adicionales
     get "home", to: "home#index"
     root "home#index"
   end
 
-  # Ruta para el health check (fuera del scope, si quieres que no dependa del idioma)
+  # Ruta para el health check
   get "up" => "rails/health#show", as: :rails_health_check
 end
