@@ -1,2 +1,29 @@
-<h1 class="text-center text-primary">Bienvenidos a la Página de Inicio</h1>
-<p class="lead text-center">Esta es una página de inicio para crear usuarios.</p>
+<%# Sección del video %>
+<div class="video-container">
+  <video autoplay muted loop id="background-video" class="w-100">
+    <source src="<%= asset_path('bg-home.mp4') %>" type="video/mp4">
+    Tu navegador no soporta este formato de video.
+  </video>
+
+  <%# Contenido encima del video %>
+  <div class="container text-center position-relative" style="height: 100vh;">
+    <div class="d-flex flex-column align-items-center justify-content-start h-100 mt-6">
+      <p class="fs-3 fw-bold text-white">Diseños ALMA</p>
+      <h1 class="title fw-bold display-3 mb-4 text-white">¡Haz tu diseño único!</h1>
+      <a href="/customize" class="btn custom-btn btn-lg">
+        <span class="d-flex align-items-center gap-2">
+          Más información <span class="fs-2 arrow-icon">&gt;</span>
+        </span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<%# Nueva sección para hacer scroll %>
+<div id="nextSection" class="container mt-5">
+  <p>Contenido adicional aquí.</p>
+  <p>Contenido adicional aquí.</p>
+  <p>Contenido adicional aquí.</p>
+  <p>Contenido adicional aquí.</p>
+  <p>Contenido adicional aquí.</p>
+</div>
