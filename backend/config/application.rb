@@ -8,6 +8,8 @@ Bundler.require(*Rails.groups)
 
 module MiApp
   class Application < Rails::Application
+    config.i18n.available_locales = [:en, :es] # rubocop:disable Layout/SpaceInsideArrayLiteralBrackets
+    config.i18n.default_locale = :es
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 8.0
 
