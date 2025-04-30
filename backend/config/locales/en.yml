@@ -28,6 +28,9 @@
 #       enabled: "ON"
 
 en:
+  #TODO: En general
+  info: More information
+
   #TODO: Opciones
   new_arrivals: New arrivals
   catalog: Catalog
@@ -42,3 +45,6 @@ en:
   tote_bags: Tote bags
   phone_cases: Phone cases
   stone_photos: Stone Photos
+
+  #TODO: Eslogan
+  slogan: Make your design unique!

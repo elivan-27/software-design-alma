@@ -1,2 +1,0 @@
-class TShirt < ApplicationRecord
-end
