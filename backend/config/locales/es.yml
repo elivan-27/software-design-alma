@@ -28,6 +28,9 @@
 #       enabled: "ON"
 
 es:
+  #TODO: En general
+  info: Más información
+
   #TODO: Opciones
   new_arrivals: "Lo más nuevo"
   catalog: "Catalogo"
@@ -43,3 +46,5 @@ es:
   phone_cases: Fundas para teléfonos
   stone_photos: Fotos en piedra
 
+  #TODO: Eslogan
+  slogan: ¡Haz tu diseño único!

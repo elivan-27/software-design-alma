@@ -11,3 +11,7 @@
 body {
   font-family: 'Poppins', sans-serif;
 }
+
+.ci {
+  color: inherit;
+}
