@@ -28,6 +28,9 @@
 #       enabled: "ON"
 
 en:
+  #TODO: Titulo
+  title: Alma Designs
+  
   #TODO: En general
   info: More information
 
@@ -46,5 +49,8 @@ en:
   phone_cases: Phone cases
   stone_photos: Stone Photos
 
-  #TODO: Eslogan
+  #TODO: Eslogans
   slogan: Make your design unique!
+  slogan2: Custom designs
+  slogan3: Quality guaranteed
+  slogan4: Welcome to Alma Designs

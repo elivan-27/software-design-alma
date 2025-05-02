@@ -28,6 +28,9 @@
 #       enabled: "ON"
 
 es:
+  #TODO: Titulo
+  title: Diseños Alma
+
   #TODO: En general
   info: Más información
 
@@ -46,5 +49,8 @@ es:
   phone_cases: Fundas para teléfonos
   stone_photos: Fotos en piedra
 
-  #TODO: Eslogan
+  #TODO: Eslogans
   slogan: ¡Haz tu diseño único!
+  slogan2: Diseños personalizados
+  slogan3: Calidad garantizada
+  slogan4: Bienvenido a Diseños Alma
