@@ -1,0 +1,15 @@
+<h1>Perfil de <%= current_user.name %></h1>
+
+<p>Email: <%= current_user.email %></p>
+<p>Teléfono: <%= current_user.phone %></p>
+
+
+<div class="mt-3">
+  <%= button_to destroy_user_session_path, method: :delete, class: "btn btn-primary w-100" do %>
+    <i data-feather="log-out" class="me-2"></i> Log out
+  <% end %>
+</div>
+
+<% if current_user.admin? %>
+  <%= link_to "Panel de Administración", admin_dashboard_path, class: "btn btn-warning" %>
+<% end %>

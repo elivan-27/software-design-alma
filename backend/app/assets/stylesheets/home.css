@@ -1,7 +1,7 @@
 /* Estilos para el contenedor del video */
 .video-container {
   position: relative;
-  height: 90vh;
+  height: 85vh;
   overflow: hidden;
 }
 
@@ -17,16 +17,8 @@
 }
 
 .title {
-  font-size: 6em;
+  font-size: clamp(2.5rem, 6vw, 6rem);
 }
-
-/* Estilo responsivo para el título en celulares */
-@media (max-width: 767px) {
-  .title {
-    font-size: 3em; /* Más pequeño en celulares */
-  }
-}
-
 
 .mt-6 {
   margin-top: 20rem;
