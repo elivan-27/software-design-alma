@@ -1,7 +1,7 @@
 /* Estilos para el contenedor del video */
 .video-container {
   position: relative;
-  height: 90vh;
+  height: 85vh;
   overflow: hidden;
 }
 
