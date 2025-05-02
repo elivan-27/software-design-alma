@@ -7,3 +7,17 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+# user = User.create(
+#   name: "alma",
+#   last_name: "gonzalez",
+#   city: "madrid",
+#   address: "calle 123",
+#   email: "alma@gmail.com".
+#   password: "123456",
+#   password_confirmation: "123456",
+#   role: "admin"
+# )
+
+# user.save
+# rake db:seed
