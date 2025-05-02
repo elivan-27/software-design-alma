@@ -63,7 +63,9 @@
 
   <body>
     <!-- Barra de navegación -->
-    <%= render "shared/navbar" %>
+    <% unless controller_path.starts_with?("admin/") %>
+      <%= render 'shared/navbar' %>
+    <% end %>
     <%= yield %>
   </body>
 </html>

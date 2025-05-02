@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get "profile/show"
+  
   scope "(:locale)", locale: /en|es/ do
     # Rutas de Devise
     devise_for :users
@@ -8,6 +9,11 @@ Rails.application.routes.draw do
     # Rutas adicionales
     get "home", to: "home#index"
     root "home#index"
+
+    namespace :admin do
+      get 'dashboard', to: 'dashboard#index'
+      resources :users, only: [:index, :show, :edit, :update, :destroy]  # Esto maneja las rutas de users
+    end
   end
 
   # Ruta para el health check

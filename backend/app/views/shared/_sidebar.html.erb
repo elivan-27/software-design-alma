@@ -1,0 +1,31 @@
+<nav id="sidebar" class="bg-dark text-white vh-100 p-3" style="width: 250px;">
+  <div class="d-flex flex-column h-100">
+    <a href="<%= admin_dashboard_path %>" class="text-white text-decoration-none mb-4 d-flex align-items-center">
+      <i data-feather="activity" class="me-2"></i>
+      <span class="fs-4">Admin Panel</span>
+    </a>
+
+    <ul class="nav nav-pills flex-column mb-auto">
+      <li class="nav-item">
+        <%= link_to admin_dashboard_path, class: "nav-link text-white #{'active' if current_page?(admin_dashboard_path)}" do %>
+          <i data-feather="home" class="me-2"></i> Dashboard
+        <% end %>
+      </li>
+      <li class="sidebar-item">
+        <%= link_to admin_users_path, class: "nav-link text-white #{'active' if current_page?(admin_users_path)}" do %>
+          <i class="align-middle" data-feather="users"></i>
+          <span class="align-middle">Users</span>
+        <% end %>
+      </li>
+
+    </ul>
+
+    <hr class="text-white">
+
+    <div class="mt-auto">
+      <%= link_to home_path, class: "btn btn-outline-light w-100" do %>
+        <i data-feather="log-out" class="me-2"></i> Volver
+      <% end %>
+    </div>
+  </div>
+</nav>

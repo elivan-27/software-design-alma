@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_04_30_145820) do
+ActiveRecord::Schema[8.0].define(version: 2025_05_02_143253) do
   create_table "t_shirts", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -34,6 +34,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_30_145820) do
     t.string "phone"
     t.text "address"
     t.string "role"
+    t.string "last_name"
+    t.string "city"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

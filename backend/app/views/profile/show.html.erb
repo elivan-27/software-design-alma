@@ -1,2 +1,8 @@
-<h1>Profile#show</h1>
-<p>Find me in app/views/profile/show.html.erb</p>
+<h1>Perfil de <%= current_user.name %></h1>
+
+<p>Email: <%= current_user.email %></p>
+<p>Teléfono: <%= current_user.phone %></p>
+
+<% if current_user.admin? %>
+  <%= link_to "Panel de Administración", admin_dashboard_path, class: "btn btn-warning" %>
+<% end %>

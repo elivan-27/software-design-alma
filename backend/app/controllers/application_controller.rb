@@ -23,11 +23,11 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    # Permitir el campo :name, :phone, :address y :role en el registro
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :phone, :address, :role])
+    # Permitir estos campos en el registro
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :last_name, :phone, :city, :address])
     
-    # Permitir el campo :name, :phone, :address y :role en la actualización de cuenta
-    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :phone, :address, :role])
+    # Permitir estos campos en la actualización de cuenta
+    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :last_name, :phone, :city, :address])
   end
 
   #* Método para redirigir al usuario al perfil después de iniciar sesión
