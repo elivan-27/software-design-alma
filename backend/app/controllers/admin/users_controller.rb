@@ -9,7 +9,6 @@ class Admin::UsersController < ApplicationController
   end
 
   def show
-    # @user ya está cargado
   end
 
   def new

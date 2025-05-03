@@ -1,6 +1,9 @@
 <h1>Nuevo Usuario</h1>
 
 <%= form_with model: [:admin, @user], local: true do |form| %>
+
+  <%= render 'shared/form_errors', object: @user %>
+
   <div class="mb-3">
     <%= form.label :name, "Nombre" %>
     <%= form.text_field :name, class: "form-control" %>

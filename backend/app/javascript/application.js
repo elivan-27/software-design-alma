@@ -36,6 +36,3 @@ document.addEventListener("turbo:load", () => {
   languageButton.addEventListener("click", changeLanguage);
   languageButtonXl.addEventListener("click", changeLanguage);
 });
-
-
-
