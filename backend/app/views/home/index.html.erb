@@ -15,11 +15,37 @@
     <div class="d-flex flex-column align-items-center justify-content-start h-100 mt-6">
       <p class="fs-3 fw-bold text-white text-uppercase"><%= t('title') %></p>
       <h1 class="title fw-bold display-3 mb-4 text-white"><%= t('slogan') %></h1>
-      <a href="#nextSection" class="btn custom-btn btn-lg">
+      <a href="#categories" class="btn custom-btn btn-lg">
         <span class="d-flex align-items-center gap-2">
           <%= t('info') %> <span class="fs-2 arrow-icon">&gt;</span>
         </span>
       </a>
     </div>
+  </div>
+</div>
+<%= render "shared/moving_bar", texts: [
+  t('slogan2'),
+  t('slogan3'),
+  t('slogan4'),
+] %>
+<div class="container mt-5 text-center position-relative" id="categories">
+  <h2 class="pb-5 fw-bold subtittle"><%= t('categories') %></h2>
+
+  <div class="row">
+    <% @categories.each do |category| %>
+      <% image_file = "#{category.name.parameterize}.webp" %>
+
+      <div class="col-6 col-md-4 col-lg-3 mb-4">
+        <p class="fw-bold"><%= category.name %></p>
+
+        <div class="inverse-box custom-rectangle custom-rectangle-theme small-box p-2 position-relative mx-auto mb-5">
+          <% if lookup_context.find_all("application/assets/images/#{image_file}").any? %>
+            <%= image_tag("placeholder.svg", class: "floating-image position-absolute top-0 start-50 translate-middle-x") %>
+          <% else %>
+            <%= image_tag(image_file, class: "floating-image position-absolute top-0 start-50 translate-middle-x") %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>
