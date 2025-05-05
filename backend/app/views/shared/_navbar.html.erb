@@ -30,13 +30,11 @@
             <%= t('catalog') %>
           </button>
           <ul class="dropdown-menu" aria-labelledby="catalogDropdown">
-            <li><a class="dropdown-item" href="/t-shirts"><%= t('t-shirts') %></a></li>
-            <li><a class="dropdown-item" href="/mugs"><%= t('mugs') %></a></li>
-            <li><a class="dropdown-item" href="/keychains"><%= t('keychains') %></a></li>
-            <li><a class="dropdown-item" href="/cushions"><%= t('cushions') %></a></li>
-            <li><a class="dropdown-item" href="/tote_bags"><%= t('tote_bags') %></a></li>
-            <li><a class="dropdown-item" href="/phone_cases"><%= t('phone_cases') %></a></li>
-            <li><a class="dropdown-item" href="/stone_photos"><%= t('stone_photos') %></a></li>
+            <% @categories.each do |category| %>
+              <li>
+                <%= link_to t("categories.#{category.name}", default: category.name), "/categories/#{category.name}", class: "dropdown-item" %>
+              </li>
+            <% end %>
           </ul>
         </li>
 

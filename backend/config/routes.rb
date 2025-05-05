@@ -14,6 +14,7 @@ Rails.application.routes.draw do
       get "dashboard", to: "dashboard#index"
       resources :users, only: [ :index, :show, :new, :create, :edit, :update, :destroy ]
       resources :products
+      resources :categories
     end
   end
 

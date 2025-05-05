@@ -1,1 +1,7 @@
 <h1>Welcome to the Admin Dashboard</h1>
+
+<%= link_to admin_users_path, class: "#{'active' if current_page?(admin_users_path)}" do %>
+  <h3>
+    Usuarios: <%= @users.count %>
+  </h3>
+<% end %>
