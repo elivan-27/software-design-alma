@@ -17,7 +17,12 @@
           <span class="align-middle">Users</span>
         <% end %>
       </li>
-
+      <li class="sidebar-item">
+        <%= link_to admin_products_path, class: "nav-link text-white #{'active' if current_page?(admin_products_path)}" do %>
+          <i class="align-middle" data-feather="products"></i>
+          <span class="align-middle">Products</span>
+        <% end %>
+      </li>
     </ul>
 
     <hr class="text-white">

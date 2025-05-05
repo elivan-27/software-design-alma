@@ -18,6 +18,11 @@
     <%= f.text_field :city, autocomplete: "address-level2" %>
   </div>
 
+    <div class="field">
+    <%= f.label :address %><br />
+    <%= f.text_field :address, autocomplete: "address-level2" %>
+  </div>
+
   <div class="field">
     <%= f.label :phone %><br />
     <%= f.telephone_field :phone, autocomplete: "tel" %>
