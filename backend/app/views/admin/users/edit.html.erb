@@ -1,2 +1,39 @@
-<h1>Admin::Users#edit</h1>
-<p>Find me in app/views/admin/users/edit.html.erb</p>
+<h1>Editar Usuario</h1>
+
+<%= form_with model: [:admin, @user], local: true do |form| %>
+
+  <%= render 'shared/form_errors', object: @user %>
+
+  <div class="mb-3">
+    <%= form.label :name, "Nombre" %>
+    <%= form.text_field :name, class: "form-control", value: @user.name %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :last_name, "Apellido" %>
+    <%= form.text_field :last_name, class: "form-control", value: @user.last_name %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :city, "Ciudad" %>
+    <%= form.text_field :city, class: "form-control", value: @user.city %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :address, "Dirección" %>
+    <%= form.text_field :address, class: "form-control", value: @user.address %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :email, "Email" %>
+    <%= form.email_field :email, class: "form-control", value: @user.email %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :role, "Rol" %>
+    <%= form.select :role, [['Usuario', 'user'], ['Administrador', 'admin']], selected: @user.role, class: "form-select #{'is-invalid' if @user.errors[:role].any?}" %>
+  </div>
+
+  <%= form.submit "Guardar Cambios", class: "btn btn-primary" %>
+  <%= link_to "Cancelar", admin_user_path(@user), class: "btn btn-secondary ms-2" %>
+<% end %>
