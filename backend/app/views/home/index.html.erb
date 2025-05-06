@@ -39,11 +39,6 @@
         <p class="fw-bold"><%= category.name %></p>
 
         <div class="inverse-box custom-rectangle custom-rectangle-theme small-box p-2 position-relative mx-auto mb-5">
-          <% if lookup_context.find_all("application/assets/images/#{image_file}").any? %>
-            <%= image_tag("placeholder.svg", class: "floating-image position-absolute top-0 start-50 translate-middle-x") %>
-          <% else %>
-            <%= image_tag(image_file, class: "floating-image position-absolute top-0 start-50 translate-middle-x") %>
-          <% end %>
         </div>
       </div>
     <% end %>
