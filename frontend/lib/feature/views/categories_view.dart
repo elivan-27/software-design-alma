@@ -8,35 +8,35 @@ class CategoriesView extends StatelessWidget {
     final List<Map<String, String>> categories = [
       {
         'name': 'Camisetas',
-        'image': '',
+        'image': 'lib/assets/images/camisetas.png',
       },
       {
         'name': 'Tazas',
-        'image': '',
+        'image': 'lib/assets/images/taza.jpg',
       },
       {
         'name': 'Mouse Pads',
-        'image': '',
+        'image': 'lib/assets/images/mousepad.png',
       },
       {
         'name': 'Llaveros',
-        'image': '',
+        'image': 'lib/assets/images/llavero.jpg',
       },
       {
         'name': 'Cojines',
-        'image': '',
+        'image': 'lib/assets/images/cojin.png',
       },
       {
         'name': 'Totebags',
-        'image': '',
+        'image': 'lib/assets/images/totebag.jpg',
       },
       {
         'name': 'Fundas',
-        'image': '',
+        'image': 'lib/assets/images/funda.jpg',
       },
       {
-        'name': '',
-        'image': '',
+        'name': 'Fotos en piedra',
+        'image': 'lib/assets/images/piedra.jpg',
       },
     ];
 
@@ -54,7 +54,6 @@ class CategoriesView extends StatelessWidget {
           children: categories.map((category) {
             return GestureDetector(
               onTap: () {
-                // Acción al tocar la categoría
                 print('Seleccionaste: ${category['name']}');
               },
               child: Card(
@@ -66,11 +65,17 @@ class CategoriesView extends StatelessWidget {
                   children: [
                     Expanded(
                       child: ClipRRect(
-                        borderRadius: const BorderRadius.vertical(top: Radius.circular(16)),
-                        child: Image.asset(
-                          category['image']!,
-                          fit: BoxFit.cover,
-                          width: double.infinity,
+                        borderRadius:
+                            const BorderRadius.vertical(top: Radius.circular(16)),
+                        child: Container(
+                          color: Colors.grey[200],
+                          child: Image.asset(
+                            category['image']!,
+                            fit: BoxFit.contain,
+                            width: double.infinity,
+                            errorBuilder: (context, error, stackTrace) =>
+                                const Icon(Icons.broken_image),
+                          ),
                         ),
                       ),
                     ),
