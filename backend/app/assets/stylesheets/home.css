@@ -90,53 +90,37 @@
   transform: translateX(5px) rotate(90deg);
 }
 
+/* Estilo catalogo de categorias */
+
 .subtittle {
   font-size: 3.5rem;
 }
-
-.small-box {
-  width: 15rem;
-  height: 8rem;
-  overflow: visible;
+@media (max-width: 991.98px) {
+  .p-6 {
+    padding: 3rem !important;
+  }
 }
 
-.floating-image {
-  width: 10rem;
+.p-6 {
+  padding: 10rem;
 }
 
-
-/* 🌑 Estilo por defecto (modo oscuro) */
 .inverse-box {
   background-color: #444;
-  background-image:
-    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2)),
-    url('https://www.transparenttextures.com/patterns/dark-mosaic.png');
-  background-repeat: repeat;
-  background-size: contain;
   color: #f8f8f8;
-  border-radius: 40px;
-  padding: 2rem;
+  height: 30rem;
 }
 
 /* ☀️ Estilo para modo claro */
 body[data-theme="dark"] .inverse-box {
-  background-color: #f0f0f0;
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)),
-    url('https://www.transparenttextures.com/patterns/dark-mosaic.png');
-  color: #222;
+  background-color: #f0f0f0cb;
+  color: #222; 
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
-body[data-theme="dark"] .floating-image {
-  filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.5));
-}
 .inverse-box:hover {
   transform: scale(1.05);
   transition: transform 0.3s ease;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   cursor: pointer;
-}
-.inverse-box:hover .floating-image {
-  width: 12rem;
 }

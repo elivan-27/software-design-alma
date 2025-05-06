@@ -28,17 +28,14 @@
   t('slogan3'),
   t('slogan4'),
 ] %>
-<div class="container mt-5 text-center position-relative" id="categories">
+<div class="container-fluid min-vh-100 text-center position-relative py-5 p-6" id="categories">
   <h2 class="pb-5 fw-bold subtittle"><%= t('categories') %></h2>
 
   <div class="row">
     <% @categories.each do |category| %>
-      <% image_file = "#{category.name.parameterize}.webp" %>
-
-      <div class="col-6 col-md-4 col-lg-3 mb-4">
-        <p class="fw-bold"><%= category.name %></p>
-
-        <div class="inverse-box custom-rectangle custom-rectangle-theme small-box p-2 position-relative mx-auto mb-5">
+      <div class="col-12 col-md-6 col-lg-3 mb-4">
+        <div class="inverse-box p-4 rounded">
+          <p class="fw-bold"><%= category.name %></p>
         </div>
       </div>
     <% end %>
