@@ -1,0 +1,31 @@
+<h1>Categorías</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @categories.each do |category| %>
+      <tr>
+        <td><%= category.name %></td>
+        <td>
+          <div class="btn-group" role="group">
+          <%= link_to "Editar", edit_admin_category_path(category), class: "btn btn-sm btn-warning me-3" %>
+          <%= button_to 'Eliminar', admin_category_path(category),
+            method: :delete,
+            form: { data: { turbo: false } },
+            onclick: "return confirm('¿Estás seguro de que deseas eliminar esta categoría?, todos los productos asociados a esta categoría serán eliminados.')",
+            class: 'btn btn-danger'
+          %>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "Nueva categoría", new_admin_category_path, class: "btn btn-primary mb-3" %>
+

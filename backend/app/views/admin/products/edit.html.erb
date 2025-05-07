@@ -1,0 +1,41 @@
+<h1 class="mb-4">Editar Producto</h1>
+
+<%= render 'shared/form_errors', object: @product %>
+
+<%= form_with model: [:admin, @product], local: true do |f| %>
+  <div class="mb-3">
+    <%= f.label :name, "Nombre del producto", class: "form-label" %>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :description, "Descripción", class: "form-label" %>
+    <%= f.text_area :description, rows: 3, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :price, "Precio", class: "form-label" %>
+    <%= f.number_field :price, step: 0.01, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :stock, "Stock", class: "form-label" %>
+    <%= f.number_field :stock, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :category_id, "Categoría", class: "form-label" %>
+    <%= f.collection_select :category_id, Category.all, :id, :name, { include_blank: true }, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :image, "Imagen", class: "form-label" %>
+    <%= f.file_field :image, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.submit "Guardar Cambios", class: "btn btn-primary" %>
+  </div>
+<% end %>
+
+<%= link_to "Cancelar", admin_products_path, class: "btn btn-secondary" %>
