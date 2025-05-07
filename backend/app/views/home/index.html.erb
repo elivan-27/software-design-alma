@@ -31,16 +31,16 @@
 <div class="container-fluid min-vh-100 text-center position-relative py-5 p-6" id="categories">
   <h2 class="pb-5 fw-bold subtittle"><%= t('categories') %></h2>
 
-  <div class="row">
+  <div class="row justify-content-center">
     <% @categories.each do |category| %>
-      <div class="col-12 col-md-6 col-lg-3 mb-4">
-        <div class="inverse-box p-4 rounded">
+      <div class="col-12 col-md-6 col-lg-3 mb-4 d-flex justify-content-center">
+        <div class="inverse-box rounded w-100 h-100" style="max-width: 300px;">
           <% if category.image.attached? %>
-            <%= image_tag category.image, class: "img-fluid mb-3 rounded" %>
+            <%= image_tag category.image, class: "mb-3 rounded category-image" %>
           <% else %>
-            <%= image_tag "placeholder.svg", class: "card-img-top", style: "height: 200px; object-fit: cover;" %>
+            <%= image_tag "placeholder.svg", class: "img-fluid mb-3 rounded", style: "height: 200px; object-fit: cover;" %>
           <% end %>
-          <p class="fw-bold"><%= category.name %></p>
+          <p class="fw-bold fs-4"><%= category.name %></p>
         </div>
       </div>
     <% end %>

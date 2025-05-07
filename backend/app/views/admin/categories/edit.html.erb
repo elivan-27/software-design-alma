@@ -8,6 +8,17 @@
     <%= form.text_field :name, class: "form-control" %>
   </div>
 
+  <div class="mb-3">
+    <%= form.label :image, "Imagen", class: "form-label" %>
+    <%= form.file_field :image, class: "form-control" %>
+
+    <% if @category.image.attached? %>
+      <div class="mt-2">
+        <%= image_tag @category.image, class: "img-fluid", style: "max-width: 200px;" %>
+      </div>
+    <% end %>
+  </div>
+
   <%= form.submit class: "btn btn-primary" %>
   <%= link_to "Cancelar", admin_categories_path(@user), class: "btn btn-secondary ms-2" %>
 <% end %>
