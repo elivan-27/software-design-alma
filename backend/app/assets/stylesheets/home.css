@@ -157,7 +157,7 @@ body[data-theme="dark"] .inverse-box {
 }
 
 .inverse-box:hover .category-image {
-  transform: scale(1.04);
+  transform: scale(1.08);
   transition: transform 0.5s ease;
 }
 
