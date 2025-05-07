@@ -1,0 +1,20 @@
+<% if notice %>
+  <div id="flash-notice" class="alert alert-success alert-dismissible fade show rounded-3" role="alert">
+    <%= notice %>
+  </div>
+<% end %>
+
+<% if alert %>
+  <div id="flash-alert" class="alert alert-danger alert-dismissible fade show rounded-3" role="alert">
+    <%= alert %>
+  </div>
+<% end %>
+
+<%= javascript_tag do %>
+  setTimeout(function() {
+    const notice = document.getElementById('flash-notice');
+    const alert = document.getElementById('flash-alert');
+    if (notice) notice.style.display = 'none';
+    if (alert) alert.style.display = 'none';
+  }, 2000);
+<% end %>

@@ -1,0 +1,38 @@
+<h1>Nuevo Producto</h1>
+
+<%= form_with model: [:admin, @product], local: true, html: { multipart: true } do |form| %>
+
+  <%= render 'shared/form_errors', object: @product %>
+
+  <div class="mb-3">
+    <%= form.label :name, "Nombre", class: "form-label" %>
+    <%= form.text_field :name, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :description, "Descripción", class: "form-label" %>
+    <%= form.text_area :description, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :price, "Precio", class: "form-label" %>
+    <%= form.number_field :price, step: 0.01, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :stock, "Stock", class: "form-label" %>
+    <%= form.number_field :stock, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :category_id, "Categoría", class: "form-label" %>
+    <%= form.collection_select :category_id, Category.all, :id, :name, prompt: "Selecciona una categoría", class: "form-select" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :image, "Imagen", class: "form-label" %>
+    <%= form.file_field :image, class: "form-control" %>
+  </div>
+
+  <%= form.submit "Crear producto", class: "btn btn-primary" %>
+<% end %>
