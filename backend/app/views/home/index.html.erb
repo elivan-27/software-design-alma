@@ -28,30 +28,4 @@
   t('slogan3'),
   t('slogan4'),
 ] %>
-<div class="container-fluid min-vh-100 text-center position-relative py-5 p-6" id="categories">
-  <h2 class="pb-5 fw-bold subtittle"><%= t('categories') %></h2>
 
-  <div class="scroll-wrapper">
-    <div class="row flex-nowrap flex-md-wrap justify-content-start">
-      <% @categories.each do |category| %>
-        <div class="m0 col-10 col-md-6 col-lg-3 mb-3 px-2 d-flex justify-content-center">
-          <div class="inverse-box w-100 h-100" style="max-width: 300px;">
-            <% if category.image.attached? %>
-              <%= image_tag category.image, class: "category-image" %>
-            <% else %>
-              <%= image_tag "placeholder.svg", class: "img-fluid", style: "height: 200px; object-fit: cover;" %>
-            <% end %>
-            <div class="box-mini2">
-              <div class="bg-box d-flex justify-content-between align-items-center border">
-                <div class="mt-3">
-                  <p class="fs-7 text-uppercase"><%= category.name %></p>
-                </div>
-                <i class="bi bi-arrow-right flecha fs-5"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  </div>
-</div>
