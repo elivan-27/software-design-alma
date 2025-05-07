@@ -105,7 +105,10 @@
   background-color: black;
   color: #f8f8f8;
   height: 30rem;
+  position: relative;
+  z-index: 1;
   overflow: hidden;
+  transition: z-index 0.3s;
 }
 
 body[data-theme="dark"] .bg-box{
@@ -116,7 +119,7 @@ body[data-theme="dark"] .bg-box{
 .bg-box {
   padding: 0.5rem 1rem;
   position: relative;
-  z-index: 2
+  z-index: 1;
 }
 
 body[data-theme="light"] .bg-box{
@@ -129,7 +132,11 @@ body[data-theme="light"] .bg-box{
   padding-bottom: 0.25rem;
   padding-left: 0.25rem;
   padding-right: 0.25rem;
-  background-color: inherit;
+  overflow: hidden;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  z-index: 2; /* Asegura que esté encima de la imagen */
 }
 
 /* ☀️ Estilo para modo claro */
@@ -141,6 +148,7 @@ body[data-theme="dark"] .inverse-box {
 
 .inverse-box:hover{
   cursor: pointer;
+  z-index: 10;
 }
 
 .inverse-box:hover .flecha {
@@ -151,13 +159,14 @@ body[data-theme="dark"] .inverse-box {
 .inverse-box:hover .category-image {
   transform: scale(1.04);
   transition: transform 0.5s ease;
-  z-index: -1;
-  transform-origin: center;
 }
 
 .category-image {
   width: 100%;
   height: 22rem;
+  object-fit: cover;
+  position: relative;
+  z-index: 1;
   object-fit: cover;
 }
 
@@ -227,4 +236,3 @@ body[data-theme="dark"] .inverse-box {
     margin: 0 !important;
   }
 }
-
