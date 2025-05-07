@@ -8,16 +8,26 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-# user = User.create(
-#   name: "alma",
-#   last_name: "gonzalez",
-#   city: "madrid",
-#   address: "calle 123",
-#   email: "alma@gmail.com".
-#   password: "123456",
-#   password_confirmation: "123456",
-#   role: "admin"
-# )
+User.find_or_create_by!(email: "alma@designalma.com") do |user|
+    user.password = "admin123"
+    user.password_confirmation = "admin123"
+    user.name = "Alma"
+    user.last_name = "Empresa"
+    user.city = "Barranquilla"
+    user.address = "Calle 123"
+    user.role = "admin" 
+  end
 
-# user.save
+ user.save
+
+ categories = [
+    {name: "Camisetas", image:"seeds/images/camisetas.webp"},
+    {name: "Tazas", image:"seeds/images/tazas.webp"},
+    {name: "Mousepads", image:"seeds/images/mousepads.webp"},
+    {name: "Fundas para Celular", image:"seeds/images/fundas.webp"},
+ ]
+
+ categories.each do |data|
+    category = Category.create!(name: data[:name])
+    image_path = Rails.root.join("db", data[:image])
 # rake db:seed
