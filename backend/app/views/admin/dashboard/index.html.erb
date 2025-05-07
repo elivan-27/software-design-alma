@@ -1,7 +1,32 @@
-<h1>Welcome to the Admin Dashboard</h1>
+<div class="container py-5">
+  <h1 class="mb-4 fw-bold text-center">Panel de Administración</h1>
 
-<%= link_to admin_users_path, class: "#{'active' if current_page?(admin_users_path)}" do %>
-  <h3>
-    Usuarios: <%= @users.count %>
-  </h3>
-<% end %>
+  <div class="mb-5">
+    <h3 class="fw-bold">Usuarios</h3>
+    <p class="fs-4"><%= @users.count %></p>
+  </div>
+
+  <div>
+    <h3 class="fw-bold mb-4">Productos por Categoría</h3>
+
+    <% @categories.each do |category| %>
+      <div class="mb-3">
+        <h5 class="text-primary fw-bold"><%= category.name %></h5>
+        <% if category.products.any? %>
+            <% category.products.each do |product| %>
+                <div class="border border-4 rounded p-2 mb-2">
+                  <%= product.name %>
+                  <p class="fw-bold">
+                    Stock: <%= product.stock %>
+                    <br>
+                    $ <%= product.formatted_price %>
+                  </p>
+                </div>
+            <% end %>
+        <% else %>
+          <p class="text-muted ps-3">Sin productos.</p>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

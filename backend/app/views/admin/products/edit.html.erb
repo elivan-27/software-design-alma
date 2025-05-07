@@ -2,7 +2,7 @@
 
 <%= render 'shared/form_errors', object: @product %>
 
-<%= form_with model: [:admin, @product], local: true do |f| %>
+<%= form_with model: [:admin, @category, @product], local: true do |f| %>
   <div class="mb-3">
     <%= f.label :name, "Nombre del producto", class: "form-label" %>
     <%= f.text_field :name, class: "form-control" %>
@@ -31,11 +31,17 @@
   <div class="mb-3">
     <%= f.label :image, "Imagen", class: "form-label" %>
     <%= f.file_field :image, class: "form-control" %>
+
+    <% if @product.image.attached? %>
+      <div class="mt-2">
+        <%= image_tag @product.image, class: "img-fluid", style: "max-width: 200px;" %>
+      </div>
+    <% end %>
   </div>
 
-  <div class="mb-3">
-    <%= f.submit "Guardar Cambios", class: "btn btn-primary" %>
+  <div class="row">
+    <%= f.submit "Guardar Cambios", class: "btn btn-primary w-25 me-3" %>
+    <%= link_to "Cancelar", admin_category_products_path, class: "w-25 btn btn-secondary" %>
   </div>
 <% end %>
 
-<%= link_to "Cancelar", admin_products_path, class: "btn btn-secondary" %>
