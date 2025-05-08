@@ -112,8 +112,8 @@
 }
 
 body[data-theme="dark"] .bg-box{
-  background-color: black;
-  color: #f8f8f8;
+  background-color: white;
+  color: black;
 }
 
 .bg-box {
@@ -229,5 +229,15 @@ body[data-theme="dark"] .inverse-box {
 
   .inverse-box {
     margin: 0 !important;
+  }
+}
+
+.border-1 {
+  border: solid 3px black;
+}
+
+@media (min-width: 992px) {
+  #categories .custom-lg-center {
+    justify-content: center !important;
   }
 }
