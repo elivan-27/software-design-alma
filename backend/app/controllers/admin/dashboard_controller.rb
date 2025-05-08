@@ -6,6 +6,7 @@ class Admin::DashboardController < ApplicationController
   def index
     # Lógica para el dashboard del administrador
     @users = User.all
+    @category = Category.all
   end
 
   private
