@@ -3,7 +3,7 @@
     <%= render 'shared/form_exited', object: @user%>
 </div>
 
-<h1 class="title-devise mb-5 mt-5"><%= t('login') %></h1>
+<h1 class="text-uppercase title-devise mb-5 mt-5"><%= t('login') %></h1>
 
 <div class="text-center mb-3 theme-text">
   <%= t('not_registered') %>
@@ -55,7 +55,7 @@
     <% end %>
 
     <!-- Submit button -->
-    <%= f.submit t('sign_in'), class: "login-button", id: 'refresh-button' %>
+    <%= f.submit t('sign_in'), class: "text-uppercase login-button", id: 'refresh-button' %>
   </div>
 <% end %>
 
