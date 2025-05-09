@@ -1,0 +1,7 @@
+es:
+  devise:
+    failure:
+    
+      user:
+        not_found_in_database: "Correo electrónico o contraseña incorrectos."
+        invalid: "Correo electrónico o contraseña incorrectos."
