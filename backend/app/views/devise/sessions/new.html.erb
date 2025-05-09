@@ -1,5 +1,7 @@
-<%= render 'shared/form_errors', object: @user %>
-<%= render 'shared/form_exited', object: @user %>
+<div class="m-3">
+    <%= render 'shared/form_errors', object: @user%>
+    <%= render 'shared/form_exited', object: @user%>
+</div>
 
 <h1 class="title-devise mb-5 mt-5"><%= t('login') %></h1>
 
@@ -10,7 +12,6 @@
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name, locale: I18n.locale)) do |f| %>
   <div class="text-center">
-
     <!-- Email input -->
     <%= f.email_field :email,
       placeholder: t('email'),
@@ -26,8 +27,8 @@
         placeholder: t('password'),
         required: true,
         autocomplete: "current-password",
-        id: "password-field",
-        class: "login-input pr-5" # Añadimos padding a la derecha para que el botón no se monte sobre el texto
+        class: "login-input pr-5",
+        id: "password-field"
       %>
 
       <button type="button"
@@ -54,7 +55,7 @@
     <% end %>
 
     <!-- Submit button -->
-    <%= f.submit t('sign_in'), class: "login-button" %>
+    <%= f.submit t('sign_in'), class: "login-button", id: 'refresh-button' %>
   </div>
 <% end %>
 
@@ -81,9 +82,13 @@
     }
   }
 
-  document.addEventListener("DOMContentLoaded", () => {
-    const icon = document.getElementById("eye-icon");
-    icon.parentElement.addEventListener("mouseover", () => icon.setAttribute("fill", "#000"));
-    icon.parentElement.addEventListener("mouseout", () => icon.setAttribute("fill", "#666"));
+  document.getElementById('refresh-button').addEventListener('click', function(e) {
+    setTimeout(() => {
+      // Verifica si existen errores de Devise renderizados para recargar la página
+      const errors = document.querySelectorAll(".alert.alert-danger");
+      if (errors.length > 0) {
+        location.reload();
+      }
+    }, 500);
   });
 </script>
