@@ -33,11 +33,15 @@ en:
 
   #TODO: LOGIN
   login: Login
+  sign_up: Sign up
   not_registered: Don't have an account?
-  sign_up: Sign up here.
+  login_here: Already have an account? Sign in here.
+  sign_up_here: Sign up here.
   remember_me: Remember me
   sign_in: Sign in
   forgot_password: Forgot your password?
+  message_minium: characters minimum
+  confirm_password: Confirm password
   
   #TODO: En general
   notice-good: The action was performed successfully!
@@ -45,6 +49,11 @@ en:
   info: More information
   email: Email
   password: Password
+  name: Name
+  last_name: Last name
+  address: Address
+  city: City
+  phone: Phone
 
   #TODO: Opciones
   new_arrivals: New arrivals
