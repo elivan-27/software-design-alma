@@ -1,0 +1,75 @@
+/* Campos de entrada */
+.login-input {
+    width: 300px;
+    padding: 15px;
+    margin: 10px auto;
+    display: block;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    font-size: 16px;
+    background-color: #fefefe;
+    color: #000;
+  }
+  
+  /* Botón */
+  .login-button {
+    width: 300px;
+    padding: 15px;
+    margin-top: 15px;
+    background-color: #000;
+    color: #fff;
+    font-weight: bold;
+    font-style: italic;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .login-button:hover {
+    background-color: #333;
+  }
+  
+  /* Soporte para modo oscuro */
+  body.dark-mode .login-input {
+    background-color: #1e1e1e;
+    color: #f5f5f5;
+    border: 1px solid #555;
+  }
+  
+  body.dark-mode .login-button {
+    background-color: #f5f5f5;
+    color: #000;
+  }
+  
+  body.dark-mode .login-button:hover {
+    background-color: #ddd;
+  }
+  
+  /* Enlaces */
+  .login-link {
+    text-decoration: underline;
+    color: #1e90ff;
+  }
+  
+  body.dark-mode .login-link {
+    color: #4ea1ff;
+  }
+  
+  /* Flash messages */
+  .flash-message {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .flash-alert {
+    color: red;
+  }
+  
+  .flash-notice {
+    color: green;
+  }
+  
