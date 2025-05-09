@@ -1,26 +1,125 @@
-<h2>Log in</h2>
+<br> </br>
+<h1 style="font-style: italic; font-weight: bold; text-align: center;">LOGIN</h1>
+<br> </br>
+<div style="text-align: center; margin-bottom: 20px;">
+  Don't have an account?
+  <%= link_to 'Sign up here.', new_registration_path(resource_name), class: 'login-link' %>
+
+</div>  
+
+<% if flash[:alert] %>
+  <div style="text-align: center; color: red; font-weight: bold; margin-bottom: 10px;">
+    <%= flash[:alert] %>
+  </div>
+<% elsif flash[:notice] %>
+  <div style="text-align: center; color: green; font-weight: bold; margin-bottom: 10px;">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+  <div style="text-align: center;">
+    
+    <!-- Email input -->
+    <%= f.email_field :email,
+          placeholder: "Email",
+          required: true,
+          autofocus: true,
+          autocomplete: "email",
+          class: "login-input",
+          style: "width: 100%; max-width: 400px; height: 45px; border-radius: 25px; border: 1px solid #ccc; padding-left: 15px; margin-bottom: 15px;" %>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+    <!-- Password input with toggle -->
+    <div style="position: relative; width: 100%; max-width: 400px; margin: 0 auto 15px;">
+      <%= f.password_field :password,
+            placeholder: "Password",
+            required: true,
+            autocomplete: "current-password",
+            id: "password-field",
+            style: "width: 100%; padding-right: 45px; border-radius: 25px; height: 45px; border: 1px solid #ccc; padding-left: 15px;" %>
 
-  <% if devise_mapping.rememberable? %>
+      <button type="button"
+              onclick="togglePassword()"
+              style="position: absolute; top: 50%; right: 15px; transform: translateY(-50%);
+                     background: none; border: none; cursor: pointer; padding: 0;">
+        <svg id="eye-icon"
+             xmlns="http://www.w3.org/2000/svg"
+             width="22" height="22"
+             fill="#666"
+             style="transition: transform 0.3s ease, fill 0.3s ease;">
+          <path d="M12 4.5C7 4.5 2.73 8.11 1 12c1.73 3.89 6 7.5 11 7.5s9.27-3.61 11-7.5c-1.73-3.89-6-7.5-11-7.5zm0 13
+          c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8a3 3 0 100 6 3 3 0 000-6z"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Remember me switch -->
+    <% if devise_mapping.rememberable? %>
     <div class="field">
       <%= f.check_box :remember_me %>
       <%= f.label :remember_me %>
     </div>
   <% end %>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
+    <!-- Submit button -->
+    <%= f.submit "SIGN IN", class: "login-button", style: "width: 100%; max-width: 400px; height: 45px; border-radius: 25px; background: black; color: white; font-weight: bold; font-style: italic; margin-top: 10px; cursor: pointer;" %>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<!-- Forgot password link -->
+<div style="text-align: center; margin-top: 15px;">
+  <%= link_to "Forgot your password?", new_password_path(resource_name), style: 'text-decoration: underline; color: black;'  %>
+</div>
+
+<!-- JavaScript -->
+<script>
+  function togglePassword() {
+    const input = document.getElementById("password-field");
+    const icon = document.getElementById("eye-icon");
+
+    icon.style.transform = "rotate(180deg)";
+    setTimeout(() => icon.style.transform = "rotate(0deg)", 300);
+
+    if (input.type === "password") {
+      input.type = "text";
+      icon.innerHTML = `<path d="M12 6a9.77 9.77 0 018.94 5.59A9.77 9.77 0 0112 18a9.77 9.77 0 01-8.94-6.41A9.77 9.77 0 0112 6zm0 2a2 2 0 100 4 2 2 0 000-4zm0 8c3.31 0 6-2.69 6-6s-2.69-6-6-6-6 2.69-6 6 2.69 6 6 6z" />`;
+    } else {
+      input.type = "password";
+      icon.innerHTML = `<path d="M12 4.5C7 4.5 2.73 8.11 1 12c1.73 3.89 6 7.5 11 7.5s9.27-3.61 11-7.5c-1.73-3.89-6-7.5-11-7.5zm0 13c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8a3 3 0 100 6 3 3 0 000-6z"/>`;
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    // Eye hover
+    const icon = document.getElementById("eye-icon");
+    icon.parentElement.addEventListener("mouseover", () => icon.setAttribute("fill", "#000"));
+    icon.parentElement.addEventListener("mouseout", () => icon.setAttribute("fill", "#666"));
+
+    // Switch logic
+    const checkbox = document.getElementById("remember_toggle");
+    const switchEl = document.getElementById("switch");
+    const circle = document.getElementById("switch-circle");
+
+    function updateSwitch() {
+      if (checkbox.checked) {
+        circle.style.left = "22px";
+        switchEl.style.background = "#4caf50";
+      } else {
+        circle.style.left = "2px";
+        switchEl.style.background = "#ccc";
+      }
+    }
+
+    // Initialize
+    updateSwitch();
+
+    // Allow clicking on switch background
+    switchEl.addEventListener("click", () => {
+      checkbox.checked = !checkbox.checked;
+      updateSwitch();
+    });
+
+    // Sync switch with checkbox (when clicking label)
+    checkbox.addEventListener("change", updateSwitch);
+  });
+</script>
