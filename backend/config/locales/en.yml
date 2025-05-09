@@ -30,9 +30,19 @@
 en:
   #TODO: Titulo
   title: Alma Designs
+
+  #TODO: LOGIN
+  login: Login
+  not_registered: Don't have an account?
+  sign_up: Sign up here.
+  remember_me: Remember me
+  sign_in: Sign in
+  forgot_password: Forgot your password?
   
   #TODO: En general
   info: More information
+  email: Email
+  password: Password
 
   #TODO: Opciones
   new_arrivals: New arrivals

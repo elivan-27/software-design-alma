@@ -31,8 +31,18 @@ es:
   #TODO: Titulo
   title: Diseños Alma
 
+  #TODO: LOGIN
+  login: Iniciar sesión
+  not_registered: ¿No tienes una cuenta?
+  sign_up: Regístrate aquí.
+  remember_me: Recuérdame
+  sign_in: Iniciar sesión
+  forgot_password: ¿Olvidaste tu contraseña?
+
   #TODO: En general
   info: Más información
+  email: Correo electrónico
+  password: Contraseña
 
   #TODO: Opciones
   new_arrivals: "Lo más nuevo"

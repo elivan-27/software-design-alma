@@ -1,42 +1,37 @@
+<%= render 'shared/form_errors', object: @user %>
+<%= render 'shared/form_exited', object: @user %>
+
 <br> </br>
-<h1 style="font-style: italic; font-weight: bold; text-align: center;">LOGIN</h1>
+<h1 class="title-devise"><%= t('login') %></h1>
 <br> </br>
-<div style="text-align: center; margin-bottom: 20px;">
-  Don't have an account?
-  <%= link_to 'Sign up here.', new_registration_path(resource_name), class: 'login-link' %>
+<div class='text-center mb-3'>
+    <%= t('not_registered') %>
+  <%= link_to t('sign_up'), new_registration_path(resource_name), class: 'login-link' %>
 
 </div>  
 
-<% if flash[:alert] %>
-  <div style="text-align: center; color: red; font-weight: bold; margin-bottom: 10px;">
-    <%= flash[:alert] %>
-  </div>
-<% elsif flash[:notice] %>
-  <div style="text-align: center; color: green; font-weight: bold; margin-bottom: 10px;">
-    <%= flash[:notice] %>
-  </div>
-<% end %>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<%= form_for(resource, as: resource_name, url: session_path(resource_name, locale: I18n.locale)) do |f| %>
   <div style="text-align: center;">
     
     <!-- Email input -->
     <%= f.email_field :email,
-          placeholder: "Email",
-          required: true,
-          autofocus: true,
-          autocomplete: "email",
-          class: "login-input",
-          style: "width: 100%; max-width: 400px; height: 45px; border-radius: 25px; border: 1px solid #ccc; padding-left: 15px; margin-bottom: 15px;" %>
+      placeholder: t('email'),
+      required: true,
+      autofocus: true,
+      autocomplete: "email",
+      class: "login-input",
+      style: "width: 100%; max-width: 400px; height: 45px; border-radius: 25px; padding-left: 15px; margin-bottom: 15px;"
+    %>
 
     <!-- Password input with toggle -->
     <div style="position: relative; width: 100%; max-width: 400px; margin: 0 auto 15px;">
       <%= f.password_field :password,
-            placeholder: "Password",
+            placeholder: t('password'),
             required: true,
             autocomplete: "current-password",
             id: "password-field",
-            style: "width: 100%; padding-right: 45px; border-radius: 25px; height: 45px; border: 1px solid #ccc; padding-left: 15px;" %>
+            class: "login-input",
+            style: "width: 100%; padding-right: 45px; border-radius: 25px; height: 45px; padding-left: 15px;" %>
 
       <button type="button"
               onclick="togglePassword()"
@@ -55,20 +50,20 @@
 
     <!-- Remember me switch -->
     <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end %>
+      <div class="field">
+        <%= f.check_box :remember_me %>
+        <%= f.label :remember_me, t('remember_me') %>
+      </div>
+    <% end %>
 
     <!-- Submit button -->
-    <%= f.submit "SIGN IN", class: "login-button", style: "width: 100%; max-width: 400px; height: 45px; border-radius: 25px; background: black; color: white; font-weight: bold; font-style: italic; margin-top: 10px; cursor: pointer;" %>
+    <%= f.submit t('sign_in'), class: "login-button", style: "width: 100%; max-width: 400px; height: 45px; border-radius: 25px; font-weight: bold; font-style: italic; margin-top: 10px; cursor: pointer;" %>
   </div>
 <% end %>
 
 <!-- Forgot password link -->
 <div style="text-align: center; margin-top: 15px;">
-  <%= link_to "Forgot your password?", new_password_path(resource_name), style: 'text-decoration: underline; color: black;'  %>
+  <%= link_to t('forgot_password'), new_password_path(resource_name), style: 'text-decoration: underline; color: inherit;'  %>
 </div>
 
 <!-- JavaScript -->
