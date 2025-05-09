@@ -14,11 +14,14 @@
   background-color: #fefefe;
   color: #000;
   height: 45px;
+  min-width: 500px;
+  padding-left: 15px;
+  margin-bottom: 1rem;
 }
 
 /* Botón */
 .login-button {
-  width: 300px;
+  min-width: 500px;
   padding: 15px;
   margin-top: 15px;
   background-color: #000;
@@ -32,6 +35,19 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+@media (max-width: 767px) {
+  .login-input {
+    min-width: 25rem;
+  }
+  .login-button {
+    min-width: 25rem;
+  }
+  .button-eye {
+    margin-right: 3.4rem;
+  }
+}
+
 
 body[data-theme="dark"] .login-button {
   background-color: #fff;
