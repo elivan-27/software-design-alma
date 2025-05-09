@@ -41,6 +41,7 @@ en:
   
   #TODO: En general
   notice-good: The action was performed successfully!
+  notice-bad: An error occurred. Please try again.
   info: More information
   email: Email
   password: Password

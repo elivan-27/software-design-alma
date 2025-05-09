@@ -41,6 +41,7 @@ es:
 
   #TODO: En general
   notice-good: ¡Accion realizada correctamente!
+  notice-bad: Ocurrió un error. Por favor, inténtalo de nuevo.
   info: Más información
   email: Correo electrónico
   password: Contraseña
