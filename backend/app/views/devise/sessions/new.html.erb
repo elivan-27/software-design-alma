@@ -1,52 +1,45 @@
-<br> </br>
-<h1 style="font-style: italic; font-weight: bold; text-align: center;">LOGIN</h1>
-<br> </br>
-<div style="text-align: center; margin-bottom: 20px;">
-  Don't have an account?
-  <%= link_to 'Sign up here.', new_registration_path(resource_name), class: 'login-link' %>
+<div class="m-3">
+    <%= render 'shared/form_errors', object: @user%>
+    <%= render 'shared/form_exited', object: @user%>
+</div>
 
+<h1 class="text-uppercase title-devise mb-5 mt-5"><%= t('login') %></h1>
+
+<div class="text-center mb-3 theme-text">
+  <%= t('not_registered') %>
+  <%= link_to t('sign_up'), new_registration_path(resource_name), class: 'login-link' %>
 </div>  
 
-<% if flash[:alert] %>
-  <div style="text-align: center; color: red; font-weight: bold; margin-bottom: 10px;">
-    <%= flash[:alert] %>
-  </div>
-<% elsif flash[:notice] %>
-  <div style="text-align: center; color: green; font-weight: bold; margin-bottom: 10px;">
-    <%= flash[:notice] %>
-  </div>
-<% end %>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div style="text-align: center;">
-    
+<%= form_for(resource, as: resource_name, url: session_path(resource_name, locale: I18n.locale)) do |f| %>
+  <div class="text-center">
     <!-- Email input -->
     <%= f.email_field :email,
-          placeholder: "Email",
-          required: true,
-          autofocus: true,
-          autocomplete: "email",
-          class: "login-input",
-          style: "width: 100%; max-width: 400px; height: 45px; border-radius: 25px; border: 1px solid #ccc; padding-left: 15px; margin-bottom: 15px;" %>
+      placeholder: t('email'),
+      required: true,
+      autofocus: true,
+      autocomplete: "email",
+      class: "login-input"
+    %>
 
     <!-- Password input with toggle -->
-    <div style="position: relative; width: 100%; max-width: 400px; margin: 0 auto 15px;">
+    <div class="position-relative" style="display: inline-block; width: 100%; max-width: 500px;">
       <%= f.password_field :password,
-            placeholder: "Password",
-            required: true,
-            autocomplete: "current-password",
-            id: "password-field",
-            style: "width: 100%; padding-right: 45px; border-radius: 25px; height: 45px; border: 1px solid #ccc; padding-left: 15px;" %>
+        placeholder: t('password'),
+        required: true,
+        autocomplete: "current-password",
+        class: "login-input pr-5",
+        id: "password-field"
+      %>
 
       <button type="button"
-              onclick="togglePassword()"
-              style="position: absolute; top: 50%; right: 15px; transform: translateY(-50%);
-                     background: none; border: none; cursor: pointer; padding: 0;">
+        onclick="togglePassword()"
+        class="button-eye position-absolute"
+        style="top: 50%; right: 15px; transform: translateY(-65%); background: none; border: none; cursor: pointer; padding: 0;">
         <svg id="eye-icon"
-             xmlns="http://www.w3.org/2000/svg"
-             width="22" height="22"
-             fill="#666"
-             style="transition: transform 0.3s ease, fill 0.3s ease;">
+          xmlns="http://www.w3.org/2000/svg"
+          width="22" height="22"
+          fill="#666"
+          style="transition: transform 0.3s ease, fill 0.3s ease;">
           <path d="M12 4.5C7 4.5 2.73 8.11 1 12c1.73 3.89 6 7.5 11 7.5s9.27-3.61 11-7.5c-1.73-3.89-6-7.5-11-7.5zm0 13
           c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8a3 3 0 100 6 3 3 0 000-6z"/>
         </svg>
@@ -55,20 +48,20 @@
 
     <!-- Remember me switch -->
     <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end %>
+      <div class="field mt-2">
+        <%= f.check_box :remember_me %>
+        <%= f.label :remember_me, t('remember_me') %>
+      </div>
+    <% end %>
 
     <!-- Submit button -->
-    <%= f.submit "SIGN IN", class: "login-button", style: "width: 100%; max-width: 400px; height: 45px; border-radius: 25px; background: black; color: white; font-weight: bold; font-style: italic; margin-top: 10px; cursor: pointer;" %>
+    <%= f.submit t('sign_in'), class: "text-uppercase login-button", id: 'refresh-button' %>
   </div>
 <% end %>
 
 <!-- Forgot password link -->
-<div style="text-align: center; margin-top: 15px;">
-  <%= link_to "Forgot your password?", new_password_path(resource_name), style: 'text-decoration: underline; color: black;'  %>
+<div class="text-center mt-3">
+  <%= link_to t('forgot_password'), new_password_path(resource_name), class: 'login-link' %>
 </div>
 
 <!-- JavaScript -->
@@ -89,37 +82,13 @@
     }
   }
 
-  document.addEventListener("DOMContentLoaded", () => {
-    // Eye hover
-    const icon = document.getElementById("eye-icon");
-    icon.parentElement.addEventListener("mouseover", () => icon.setAttribute("fill", "#000"));
-    icon.parentElement.addEventListener("mouseout", () => icon.setAttribute("fill", "#666"));
-
-    // Switch logic
-    const checkbox = document.getElementById("remember_toggle");
-    const switchEl = document.getElementById("switch");
-    const circle = document.getElementById("switch-circle");
-
-    function updateSwitch() {
-      if (checkbox.checked) {
-        circle.style.left = "22px";
-        switchEl.style.background = "#4caf50";
-      } else {
-        circle.style.left = "2px";
-        switchEl.style.background = "#ccc";
+  document.getElementById('refresh-button').addEventListener('click', function(e) {
+    setTimeout(() => {
+      // Verifica si existen errores de Devise renderizados para recargar la página
+      const errors = document.querySelectorAll(".alert.alert-danger");
+      if (errors.length > 0) {
+        location.reload();
       }
-    }
-
-    // Initialize
-    updateSwitch();
-
-    // Allow clicking on switch background
-    switchEl.addEventListener("click", () => {
-      checkbox.checked = !checkbox.checked;
-      updateSwitch();
-    });
-
-    // Sync switch with checkbox (when clicking label)
-    checkbox.addEventListener("change", updateSwitch);
+    }, 2000);
   });
 </script>

@@ -1,6 +1,6 @@
 <% if notice %>
   <div id="flash-notice" class="alert alert-success alert-dismissible fade show rounded-3" role="alert">
-    <%= notice %>
+    <%= t("notice-good") %>
   </div>
 <% end %>
 
@@ -12,7 +12,7 @@
 
 <%= javascript_tag do %>
   setTimeout(function() {
-    const notice = document.getElementById('flash-notice');
+  const notice = document.getElementById('flash-notice');
     const alert = document.getElementById('flash-alert');
     if (notice) notice.style.display = 'none';
     if (alert) alert.style.display = 'none';

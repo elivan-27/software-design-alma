@@ -3,7 +3,7 @@
     <% object.errors.full_messages.each do |message| %>
       <div class="alert alert-danger alert-dismissible fade show rounded-3 shadow-sm px-3 py-2" role="alert">
         <%= message %>
-      </div>
+      </div>      
     <% end %>
   </div>
 
@@ -16,9 +16,6 @@
           alert.style.height = 0;
           alert.style.margin = 0;
           alert.style.padding = 0;
-          setTimeout(function() {
-            alert.remove();
-          }, 0); // esperar a que termine la animación
         });
       }, 2000);
     });
