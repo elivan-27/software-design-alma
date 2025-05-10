@@ -28,6 +28,46 @@
 #       enabled: "ON"
 
 es:
+  activerecord:
+    errors:
+      models:
+        category:
+          attributes:
+            image:
+              blank: "La imagen no puede estar vacía"
+            name:
+              blank: "El nombre no puede estar vacío"
+        user:
+          attributes:
+            name:
+              blank: "El nombre es obligatorio"
+            last_name:
+              blank: "El apellido es obligatorio"
+            city:
+              blank: "La ciudad es obligatorio"
+            address:
+              blank: "La dirección es obligatorio"
+            email:
+              blank: "El correo electrónico es obligatorio" 
+            password:
+              blank: "La contraseña es obligatoria"
+        product:
+          attributes:
+            name:
+              blank: "El nombre del producto es obligatorio"
+            description:
+              blank: "La descripción del producto es obligatoria"
+            price:
+              blank: "El precio del producto es obligatorio"
+            stock:
+              blank: "El stock del producto es obligatorio"
+              not_a_number: "El stock debe ser un número"
+            category_id:
+              blank: "La categoría del producto es obligatoria"
+            image:
+              blank: "La imagen del producto es obligatoria"
+
+
   #TODO: Titulo
   title: Diseños Alma
 

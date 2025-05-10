@@ -1,7 +1,16 @@
 es:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              taken: "Este correo ya está en uso."
+            password_confirmation:
+              confirmation: "La confirmación de la contraseña no coincide."
+
   devise:
     failure:
-    
       user:
         not_found_in_database: "Correo electrónico o contraseña incorrectos."
         invalid: "Correo electrónico o contraseña incorrectos."

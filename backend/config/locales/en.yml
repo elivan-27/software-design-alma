@@ -28,6 +28,45 @@
 #       enabled: "ON"
 
 en:
+  activerecord:
+    errors:
+      models:
+        category:
+          attributes:
+            image:
+              blank: "Image can't be blank"
+            name:
+              blank: "Name can't be blank"
+        user:
+          attributes:
+            name:
+              blank: "Name can't be blank"
+            last_name:
+              blank: "Last name can't be blank"
+            city:
+              blank: "City can't be blank"
+            address:
+              blank: "Address can't be blank"
+            email:
+              blank: "Email can't be blank"
+            password:
+              blank: "Password can't be blank"
+        product:
+          attributes:
+            name:
+              blank: "Product name can't be blank"
+            description:
+              blank: "Product description can't be blank"
+            price:
+              blank: "Product price can't be blank"
+            stock:
+              blank: "Product stock can't be blank"
+              not_a_number: "Stock must be a number"
+            category_id:
+              blank: "Product category can't be blank"
+            image:
+              blank: "Product image can't be blank"
+
   #TODO: Titulo
   title: Alma Designs
 
