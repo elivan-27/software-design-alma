@@ -102,8 +102,6 @@
 }
 
 .inverse-box {
-  background-color: black;
-  color: #f8f8f8;
   height: 30rem;
   position: relative;
   z-index: 1;
@@ -145,16 +143,12 @@ body[data-theme="dark"] .inverse-box {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
-.inverse-box:hover{
-  cursor: pointer;
-}
-
 .inverse-box:hover .flecha {
   transform: translateX(7px);
   transition: transform 0.5s ease;
 }
 
-.inverse-box:hover .category-image {
+.category-image:hover {
   transform: scale(1.08);
   transition: transform 0.5s ease;
 }
@@ -163,10 +157,6 @@ body[data-theme="dark"] .inverse-box {
   width: 100%;
   height: 22rem;
   object-fit: cover;
-  mask-image: linear-gradient(
-    black 70%,
-    transparent 100%
-  );
 }
 
 @media (max-width: 1299.98px) and (min-width: 768px) {
@@ -244,4 +234,68 @@ body[data-theme="dark"] .inverse-box {
   #categories .custom-lg-center {
     justify-content: center !important;
   }
+}
+
+/* Boton de ir a productos */
+.cssbuttons-io-button {
+  background: #007bff;
+  color: white;
+  font-family: inherit;
+  padding: 0.35em;
+  padding-left: 1.2em;
+  font-size: 17px;
+  font-weight: 500;
+  border-radius: 0.9em;
+  border: none;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  box-shadow: inset 0 0 1.6em -0.6em #0056b3; /* sombra azul oscura */
+  overflow: hidden;
+  position: relative;
+  height: 2.8em;
+  padding-right: 3.3em;
+  cursor: pointer;
+  user-select: none;
+  width: 100%;
+}
+
+.cssbuttons-io-button .icon {
+  background: white;
+  margin-left: 1em;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.2em;
+  width: 2.2em;
+  border-radius: 0.7em;
+  box-shadow: 0.1em 0.1em 0.6em 0.2em #0056b3;
+  right: 0.3em;
+  transition: all 0.3s;
+}
+
+.cssbuttons-io-button:hover .icon {
+  width: calc(100% - 0.6em);
+}
+
+.cssbuttons-io-button .icon svg {
+  width: 1.1em;
+  transition: transform 0.3s;
+  color: #007bff;
+}
+
+.cssbuttons-io-button:hover .icon svg {
+  transform: translateX(0.1em);
+
+}
+
+.cssbuttons-io-button:active .icon {
+  transform: scale(0.95);
+}
+
+.click:hover {
+  .icon {
+  width: calc(100% - 0.6em);
+}
 }

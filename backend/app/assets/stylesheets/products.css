@@ -1,0 +1,64 @@
+.h-15 {
+  height: 15%;
+}
+
+.color-green {
+  color: #28a745; /* Verde brillante */
+}
+
+.rounded-img {
+  border-radius: 10%;
+}
+.card-img-top:hover {
+  transform: scale(1.08);
+  transition: transform 0.5s ease;
+}
+
+.image-zoom-container {
+  overflow: hidden;
+  border-radius: 10%;
+  position: relative;
+}
+
+.image-zoom {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.image-zoom-container:hover .image-zoom {
+  transform: scale(1.2); /* Zoom hacia dentro */
+}
+
+
+/* Boton de agregar al carrito */
+.button {
+  width: 100%;
+  height: 2.5rem;
+  background-image: linear-gradient(#28a745, #25c247); /* Verde brillante */
+  border: none;
+  border-radius: 50px;
+  color: white;
+  font-weight: 600;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 1px 3px 0px #1e7e34; /* Sombra en tono oscuro del verde */
+  transition-duration: .3s;
+}
+
+.cartIcon {
+  width: 14px;
+  height: fit-content;
+}
+
+.cartIcon path {
+  fill: white;
+}
+
+.button:active {
+  transform: translate(2px ,0px);
+  box-shadow: 0px 1px 0px #1e7e34;
+  padding-bottom: 1px;
+}
