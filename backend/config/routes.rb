@@ -17,6 +17,10 @@ Rails.application.routes.draw do
         resources :products
       end
     end
+
+    resources :categories do
+      resources :products, only: [ :index, :show ]
+    end
   end
 
   # Ruta para el health check

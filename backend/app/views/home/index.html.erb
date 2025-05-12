@@ -37,7 +37,7 @@
         <div class="row flex-nowrap flex-md-wrap justify-content-start justify-content-lg-center">
           <% @categories.each do |category| %>
             <div class="m0 col-10 col-md-6 col-lg-3 mb-3 px-2 d-flex justify-content-center">
-              <div class="inverse-box w-100 h-100" style="max-width: 300px;">
+              <%= link_to category_products_path(category), class: "inverse-box w-100 h-100", style: "max-width: 300px;" do %>
                 <% if category.image.attached? %>
                   <%= image_tag category.image, class: "category-image" %>
                 <% else %>
@@ -51,7 +51,7 @@
                     <i class="bi bi-arrow-right flecha fs-5"></i>
                   </div>
                 </div>
-              </div>
+              <% end %>
             </div>
           <% end %>
         </div>
