@@ -4,15 +4,17 @@
   <% if @products.present? %>
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
       <% @category.products.each do |product| %>
-        <div class="col">
-          <div class=" h-100">
-            <div class="image-zoom-container"> 
+        <div class="col mb-5">
+          <div class="h-100">
+
+            <%= link_to category_product_path(product.category_id, product.id), class: "image-zoom-container d-block" do %>
               <% if product.image.attached? %>
                 <%= image_tag product.image, class: "card-img-top rounded-img", style: "height: 400px; object-fit: cover;" %>
               <% else %>
                 <%= image_tag "placeholder.svg", class: "card-img-top rounded-img", style: "height: 200px; object-fit: cover;" %>
               <% end %>
-            </div>
+            <% end %>
+
             <div class="card-body pt-4 h-15">
               <h5 class="card-title text-uppercase fw-bold"><%= product.name %></h5>
             </div>
@@ -28,12 +30,9 @@
         </div>
       <% end %>
     </div>
-
   <% else %>
-
     <p class="text-danger">
       <%= t("no_products") %>
     </p>
-    
   <% end %>
 </div>
