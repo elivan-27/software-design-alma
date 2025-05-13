@@ -5,7 +5,7 @@ class Product < ApplicationRecord
 
   # * Validar que el stock sea un número mayor o igual a 0
   validates :stock, numericality: { greater_than_or_equal_to: 0 }
-  validates :name, :price, :stock, :category_id, presence: true
+  validates :name, :price, :stock, :category_id, :image, presence: true
 
   def formatted_price
     ActionController::Base.helpers.number_to_currency(price, unit: "", separator: ",", delimiter: ".", precision: 0)

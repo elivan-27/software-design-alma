@@ -28,16 +28,60 @@
 #       enabled: "ON"
 
 es:
+  activerecord:
+    errors:
+      models:
+        category:
+          attributes:
+            image:
+              blank: "La imagen no puede estar vacía"
+            name:
+              blank: "El nombre no puede estar vacío"
+        user:
+          attributes:
+            name:
+              blank: "El nombre es obligatorio"
+            last_name:
+              blank: "El apellido es obligatorio"
+            city:
+              blank: "La ciudad es obligatorio"
+            address:
+              blank: "La dirección es obligatorio"
+            email:
+              blank: "El correo electrónico es obligatorio" 
+            password:
+              blank: "La contraseña es obligatoria"
+        product:
+          attributes:
+            name:
+              blank: "El nombre del producto es obligatorio"
+            description:
+              blank: "La descripción del producto es obligatoria"
+            price:
+              blank: "El precio del producto es obligatorio"
+            stock:
+              blank: "El stock del producto es obligatorio"
+              not_a_number: "El stock debe ser un número"
+            category_id:
+              blank: "La categoría del producto es obligatoria"
+            image:
+              blank: "La imagen del producto es obligatoria"
+
+
   #TODO: Titulo
   title: Diseños Alma
 
   #TODO: LOGIN
   login: Iniciar sesión
+  sign_up: Registrarse
   not_registered: ¿No tienes una cuenta?
-  sign_up: Regístrate aquí.
+  sign_up_here: Regístrate aquí.
   remember_me: Recuérdame
   sign_in: Iniciar sesión
   forgot_password: ¿Olvidaste tu contraseña?
+  login_here: ¿Ya tienes cuenta? Inicia sesión aquí.
+  message_minium: caracteres mínimos
+  confirm_password: Confirmar contraseña
 
   #TODO: En general
   notice-good: ¡Accion realizada correctamente!
@@ -45,6 +89,11 @@ es:
   info: Más información
   email: Correo electrónico
   password: Contraseña
+  name: Nombre
+  last_name: Apellido
+  address: Dirección
+  city: Ciudad
+  phone: Teléfono
 
   #TODO: Opciones
   new_arrivals: "Lo más nuevo"

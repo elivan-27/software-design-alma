@@ -1,54 +1,103 @@
-<h2>Sign up</h2>
+<div class="m-3">
+    <%= render 'shared/form_errors', object: @user%>
+    <%= render 'shared/form_exited', object: @user%>
+</div>
+
+<h1 class="text-uppercase title-devise mb-5 mt-5"><%= t('sign_up') %></h1>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+  <div class="text-center">
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autocomplete: "given-name" %>
-  </div>
+    <!-- Name input -->
+    <%= f.text_field :name,
+      placeholder: t('name'),
+      required: true,
+      autofocus: true,
+      autocomplete: "given-name",
+      class: "login-input"
+    %>
 
-  <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name, autocomplete: "family-name" %>
-  </div>
+    <!-- Lastname input -->
+    <%= f.text_field :last_name,
+      placeholder: t('last_name'),
+      required: true,
+      autofocus: true,
+      autocomplete: "family-name",
+      class: "login-input"
+    %>
+    
+    <!-- City input -->
+    <%= f.text_field :city,
+      placeholder: t('city'),
+      required: true,
+      autofocus: true,
+      autocomplete: "address-level2",
+      class: "login-input"
+    %>
 
-  <div class="field">
-    <%= f.label :city %><br />
-    <%= f.text_field :city, autocomplete: "address-level2" %>
-  </div>
+    <!-- Address input -->
+    <%= f.text_field :address,
+      placeholder: t('address'),
+      required: true,
+      autofocus: true,
+      autocomplete: "address-level2",
+      class: "login-input"
+    %>
 
-    <div class="field">
-    <%= f.label :address %><br />
-    <%= f.text_field :address, autocomplete: "address-level2" %>
-  </div>
+    <!-- Phone input -->
+    <%= f.telephone_field :phone,
+      placeholder: t('phone'),
+      required: true,
+      autofocus: true,
+      autocomplete: "tel",
+      class: "login-input"
+    %>
 
-  <div class="field">
-    <%= f.label :phone %><br />
-    <%= f.telephone_field :phone, autocomplete: "tel" %>
-  </div>
+    <!-- Email input -->
+    <%= f.email_field :email,
+      placeholder: t('email'),
+      required: true,
+      autofocus: true,
+      autocomplete: "email",
+      class: "login-input"
+    %>
+    <!-- Password input with toggle -->
+    <% placeholder_text = if @minimum_password_length
+      "#{t('password')} (#{@minimum_password_length} #{t('message_minium')})"
+    else
+      t('password')
+    end %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+    <%= f.password_field :password,
+      placeholder: placeholder_text,
+      required: true,
+      autocomplete: "new-password",
+      class: "login-input pr-5",
+      id: "password-field"
+    %>
+    
+    <%= f.password_field :password_confirmation,
+      placeholder: t('confirm_password'),
+      required: true,
+      autocomplete: "new-password",
+      class: "login-input pr-5"
+    %>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit t('sign_up'), class: "text-uppercase login-button", id: "refresh-button" %>
+    <div class="mt-3">
+      <%= render "devise/shared/links" %>
+    </div>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<script>
+  document.getElementById('refresh-button').addEventListener('click', function(e) {
+    setTimeout(() => {
+      // Verifica si existen errores de Devise renderizados para recargar la página
+      const errors = document.querySelectorAll(".alert.alert-danger");
+      if (errors.length > 0) {
+        location.reload();
+      }
+    }, 2000);
+  });
+</script>
