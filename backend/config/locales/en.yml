@@ -81,7 +81,7 @@ en:
   forgot_password: Forgot your password?
   message_minium: characters minimum
   confirm_password: Confirm password
-  
+
   #TODO: En general
   notice-good: The action was performed successfully!
   notice-bad: An error occurred. Please try again.
@@ -95,7 +95,7 @@ en:
   phone: Phone
 
   #TODO: Opciones
-  new_arrivals: New arrivals
+  new_arrivals: What's New
   catalog: Catalog
   customize: Customize your combo
   categories: Categories
