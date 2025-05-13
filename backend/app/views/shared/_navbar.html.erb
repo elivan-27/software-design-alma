@@ -16,33 +16,33 @@
 
     <!-- Opciones del menú -->
     <div class="collapse navbar-collapse justify-content-center order-lg-2" id="navbarNav">
-      <ul class="navbar-nav">
-
-        <li class="nvi fs-5 fw-bold nav-item">
-          <a class="nav-link active" href="/new_arrivals">
-            <%= t('new_arrivals') %>
-          </a>
-        </li>
-
-        <li class="nvi mx-lg-5 nav-item dropdown">
-          <button class="fs-5 fw-bold nav-link active dropdown-toggle" id="catalogDropdown" role="button"
-            data-bs-toggle="dropdown" aria-expanded="false" style="background: none; border: none;">
-            <%= t('not_categories') %>
-          </button>
-          <ul class="dropdown-menu" aria-labelledby="catalogDropdown">
-            <% @categories.each do |category| %>
-              <li>
-                <%= link_to t("categories.#{category.name}", default: category.name), "/categories/#{category.name}", class: "dropdown-item" %>
-              </li>
-            <% end %>
-          </ul>
-        </li>
-
-        <li class="nav-item">
-          <a class="fs-5 fw-bold nav-link active nvi" href="/customize">
-            <%= t('customize') %>
-          </a>
-        </li>
+    <ul class="navbar-nav">
+  
+      <li class="nvi fs-5 fw-bold nav-item">
+        <a class="nav-link active text-uppercase" href="/new_arrivals">
+          <%= t('new_arrivals') %>
+        </a>
+      </li>
+  
+      <li class="nvi mx-lg-5 nav-item dropdown">
+        <button class="fs-5 fw-bold nav-link active dropdown-toggle text-uppercase" id="catalogDropdown" role="button"
+          data-bs-toggle="dropdown" aria-expanded="false" style="background: none; border: none;">
+          <%= t('catalog') %>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="catalogDropdown">
+          <% @categories.each do |category| %>
+            <li>
+              <%= link_to t("categories.#{category.name}", default: category.name), "/categories/#{category.name}", class: "dropdown-item text-uppercase" %>
+            </li>
+          <% end %>
+        </ul>
+      </li>
+  
+      <li class="nav-item">
+        <a class="fs-5 fw-bold nav-link active nvi text-uppercase" href="/customize">
+          <%= t('customize') %>
+        </a>
+      </li>
 
         <!-- Iconos debajo de las opciones del menú solo en pantallas pequeñas -->
         <div class="d-flex mt-3 flex-row align-items-center d-lg-none">

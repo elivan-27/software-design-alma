@@ -94,7 +94,7 @@ es:
   address: Dirección
   city: Ciudad
   phone: Teléfono
-  not_categories: No hay categorías
+  
 
   #TODO: Opciones
   new_arrivals: "Lo más nuevo"
