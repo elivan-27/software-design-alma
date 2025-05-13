@@ -1,8 +1,6 @@
 .barra-texto {
   width: 100%;
   overflow: hidden;
-  background-color: white;
-  padding: 10px 0;
 }
 
 .contenedor-textos {
@@ -16,17 +14,29 @@
   align-items: center;
   font-weight: bold;
   font-size: 1rem;
-  color: red;
-  padding: 0 1rem;
+  padding: 1rem;
 }
 
 .separador {
   margin-left: 2rem;
   font-size: 1.2em;
-  color: red;
 }
 
 @keyframes mover {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.color-red {
+  color: red;
+  background-color: white;
+}
+
+.color-white {
+  color: white;
+  background-color: red;
 }

@@ -1,11 +1,12 @@
-<div class="barra-texto">
-  <div class="contenedor-textos">
+<% highlight ||= false %>
+<div class="barra-texto ">
+  <div class="contenedor-textos <%= highlight ? 'color-' : 'color-white' %>">
     <% full_texts = (texts * 3) %>
     <% (full_texts + full_texts).each_with_index do |txt, index| %>
-      <span class="texto text-uppercase">
+      <span class="texto text-uppercase <%= highlight ? 'color-red' : 'color-white' %>">
         <%= txt %>
         <% unless index == (full_texts + full_texts).size - 1 %>
-          <span class="separador">●</span>
+          <span class="separador <%= highlight ? 'color-red' : 'color-white' %>">●</span>
         <% end %>
       </span>
     <% end %>
