@@ -81,6 +81,7 @@ en:
   forgot_password: Forgot your password?
   message_minium: characters minimum
   confirm_password: Confirm password
+  not_categories: No categories found
   
   #TODO: En general
   notice-good: The action was performed successfully!
