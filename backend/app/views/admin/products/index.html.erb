@@ -21,7 +21,7 @@
 
         <div class="card-footer d-flex justify-content-between">
           <%= link_to "Editar", edit_admin_category_product_path(@category ,product), class: "btn btn-sm btn-secondary" %>
-          <%= button_to 'Eliminar', admin_categories_path(@category),
+          <%= button_to 'Eliminar', admin_category_product_path(@category, product),
             method: :delete,
             form: { data: { turbo: false } },
             onclick: "return confirm('¿Estás seguro de que deseas eliminar esta producto?')",

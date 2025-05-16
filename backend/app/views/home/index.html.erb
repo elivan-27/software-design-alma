@@ -3,7 +3,8 @@
     t('slogan2'),
     t('slogan3'),
     t('slogan4'),
-  ] %>
+  ], highlight: true %>
+
   <%# Sección del video %>
   <div class="video-container">
     <video autoplay muted loop id="background-video" class="w-100">
@@ -24,32 +25,81 @@
       </div>
     </div>
   </div>
+
   <%= render "shared/moving_bar", texts: [
     t('slogan2'),
     t('slogan3'),
     t('slogan4'),
   ] %>
-  <% if @categories.present? %>
-    <div class="container-fluid min-vh-100 text-center position-relative py-5 p-6" id="categories">
-      <h2 class="pb-5 fw-bold subtittle"><%= t('categories') %></h2>
 
+  <%# Sección de categorías %>
+  <% if @categories.present? %>
+    <div class="container-fluid text-center position-relative py-5 p-6" id="categories">
+      <h2 class="pb-5 fw-bold subtittle"><%= t('categories') %></h2>
       <div class="scroll-wrapper">
         <div class="row flex-nowrap flex-md-wrap justify-content-start justify-content-lg-center">
           <% @categories.each do |category| %>
             <div class="m0 col-10 col-md-6 col-lg-3 mb-3 px-2 d-flex justify-content-center">
-              <div class="inverse-box w-100 h-100" style="max-width: 300px;">
-                <% if category.image.attached? %>
-                  <%= image_tag category.image, class: "category-image" %>
-                <% else %>
-                  <%= image_tag "placeholder.svg", class: "img-fluid", style: "height: 200px; object-fit: cover;" %>
-                <% end %>
-                <div class="box-mini2">
-                  <div class="bg-box d-flex justify-content-between align-items-center border-1">
-                    <div class="mt-3">
-                      <p class="fs-7 text-uppercase"><%= category.name %></p>
-                    </div>
-                    <i class="bi bi-arrow-right flecha fs-5"></i>
+              <div class="w-100 h-100" style="max-width: 300px;">
+                <%= link_to category_products_path(category), class: "click w-100 h-100 d-flex flex-column align-items-center text-decoration-none" do %>
+                  <div class="image-zoom-container">
+                    <% if category.image.attached? %>
+                      <%= image_tag category.image, class: "category-image" %>
+                    <% else %>
+                      <%= image_tag "placeholder.svg", class: "category-image" %>
+                    <% end %>
                   </div>
+                  <button class="cssbuttons-io-button d-inline-flex align-items-center gap-2 mt-2">
+                    <%= category.name %>
+                    <div class="icon">
+                      <svg height="24" width="24" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"></path>
+                        <path
+                          d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"
+                          fill="currentColor"
+                        ></path>
+                      </svg>
+                    </div>
+                  </button>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <%# Sección de productos nuevos %>
+  <% if @latest_products.present? %>
+    <div class="container-fluid py-5" id="whats_new">
+      <h2 class="pb-5 fw-bold subtittle text-center"><%= t('new_arrivals') %></h2>
+
+      <div class="scroll-wrapper">
+        <div class="row flex-nowrap">
+          <% @latest_products.each do |product| %>
+            <div class="col-10 col-md-6 col-lg-3 mb-3 px-2 d-flex justify-content-center">
+              <div class="w-100 h-100" style="max-width: 300px;">
+                <%= link_to category_product_path(product.category_id, product.id), class: "image-zoom-container d-block" do %>
+                  <% if product.image.attached? %>
+                    <%= image_tag product.image, class: "card-img-top rounded-img", style: "height: 400px; object-fit: cover;" %>
+                  <% else %>
+                    <%= image_tag "placeholder.svg", class: "card-img-top rounded-img", style: "height: 200px; object-fit: cover;" %>
+                  <% end %>
+                <% end %>
+
+                <div class="card-body pt-4 h-15">
+                  <h5 class="card-title text-uppercase fw-bold"><%= product.name %></h5>
+                </div>
+
+                <p class="px-3 card-text fs-7 fw-bold color-green">$ <%= product.formatted_price %> </p>
+                <div class="d-flex justify-content-between">
+                  <button class="button">
+                    <%= t("add_to_cart") %>
+                    <svg class="cartIcon" viewBox="0 0 576 512">
+                      <path d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"></path>
+                    </svg>
+                  </button>
                 </div>
               </div>
             </div>

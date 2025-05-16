@@ -81,7 +81,7 @@ en:
   forgot_password: Forgot your password?
   message_minium: characters minimum
   confirm_password: Confirm password
-  
+
   #TODO: En general
   notice-good: The action was performed successfully!
   notice-bad: An error occurred. Please try again.
@@ -95,7 +95,7 @@ en:
   phone: Phone
 
   #TODO: Opciones
-  new_arrivals: New arrivals
+  new_arrivals: What's New
   catalog: Catalog
   customize: Customize your combo
   categories: Categories
@@ -116,3 +116,7 @@ en:
   slogan2: Custom designs
   slogan3: Quality guaranteed
   slogan4: Welcome to Alma Designs
+
+  #TODO: Productos
+  add_to_cart: Add to cart
+  no_products: This category has no products available
