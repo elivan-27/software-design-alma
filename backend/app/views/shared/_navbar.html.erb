@@ -33,7 +33,7 @@
             <% if @categories.any? %>
     <% @categories.each do |category| %>
       <li>
-        <%= link_to t("categories.#{category.name}", default: category.name), "/categories/#{category.name}", class: "dropdown-item text-uppercase" %>
+        <%= link_to t("categories.#{category.name}", default: category.name), category_products_path(category), class: "dropdown-item text-uppercase" %>
       </li>
     <% end %>
   <% else %>
