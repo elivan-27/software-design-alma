@@ -99,6 +99,7 @@ en:
   catalog: Catalog
   customize: Customize your combo
   categories: Categories
+  no_categories_available: There are no categories
 
   #TODO: Productos a vender
   t-shirts: T-shirts
