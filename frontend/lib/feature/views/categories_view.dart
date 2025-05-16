@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'products_view.dart';
 
 class CategoriesView extends StatelessWidget {
   const CategoriesView({super.key});
@@ -38,10 +39,17 @@ class CategoriesView extends StatelessWidget {
               child: InkWell(
                 borderRadius: BorderRadius.circular(16),
                 onTap: () {
-                  print('Seleccionaste: ${category['name']}');
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          ProductsView(categoryName: category['name']!),
+                    ),
+                  );
                 },
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
                   child: Row(
                     children: [
                       ClipOval(
@@ -50,11 +58,13 @@ class CategoriesView extends StatelessWidget {
                           width: 64,
                           height: 64,
                           fit: BoxFit.cover,
-                          errorBuilder: (context, error, stackTrace) => Container(
+                          errorBuilder: (context, error, stackTrace) =>
+                              Container(
                             width: 64,
                             height: 64,
                             color: Colors.grey[300],
-                            child: const Icon(Icons.broken_image, size: 32),
+                            child:
+                                const Icon(Icons.broken_image, size: 32),
                           ),
                         ),
                       ),
