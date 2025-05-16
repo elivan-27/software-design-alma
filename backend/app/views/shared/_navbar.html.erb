@@ -30,11 +30,17 @@
             <%= t('catalog') %>
           </button>
           <ul class="dropdown-menu" aria-labelledby="catalogDropdown">
-            <% @categories.each do |category| %>
-              <li>
-                <%= link_to t("categories.#{category.name}", default: category.name), category_products_path(category), class: "dropdown-item" %>
-              </li>
-            <% end %>
+            <% if @categories.any? %>
+    <% @categories.each do |category| %>
+      <li>
+        <%= link_to t("categories.#{category.name}", default: category.name), "/categories/#{category.name}", class: "dropdown-item text-uppercase" %>
+      </li>
+    <% end %>
+  <% else %>
+    <li class="dropdown-item text-uppercase text-muted">
+      <%= t('no_categories_available', default: 'No hay categorías') %>
+    </li>
+  <% end %>
           </ul>
         </li>
 

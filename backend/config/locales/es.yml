@@ -100,6 +100,7 @@ es:
   catalog: "Catalogo"
   customize: "Personaliza tu combo"
   categories: "Categorías"
+  no_categories_available: "No hay Categorías"
 
   #TODO: Productos a vender
   t-shirts: Camisetas
