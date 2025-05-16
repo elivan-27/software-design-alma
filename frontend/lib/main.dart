@@ -14,7 +14,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Mi App',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.teal),
+        useMaterial3: true,
       ),
       home: const HomeView(),
     );
@@ -27,10 +28,25 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Inicio")),
+      appBar: AppBar(
+        title: const Text("Inicio"),
+        backgroundColor: Colors.teal,
+        foregroundColor: Colors.white,
+      ),
       body: Center(
-        child: ElevatedButton(
-          child: const Text("Ir a Categorías"),
+        child: ElevatedButton.icon(
+          style: ElevatedButton.styleFrom(
+            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+            backgroundColor: Colors.teal,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
+            ),
+          ),
+          icon: const Icon(Icons.category),
+          label: const Text(
+            "Ir a Categorías",
+            style: TextStyle(fontSize: 18),
+          ),
           onPressed: () {
             Navigator.push(
               context,
