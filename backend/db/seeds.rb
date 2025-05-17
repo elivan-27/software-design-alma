@@ -31,7 +31,7 @@ categories = [
       description: "Camiseta 100% algodón con estampado exclusivo.",
       price: 40000,
       stock: 30,
-      image: "seeds/images/product_camiseta.webp"
+      image: "seeds/images/products/product_camiseta.webp"
     }
   },
   {
@@ -42,7 +42,7 @@ categories = [
       description: "Taza personalizada con tu diseño.",
       price: 20000,
       stock: 40,
-      image: "seeds/images/product_taza.webp"
+      image: "seeds/images/products/product_taza.webp"
     }
   },
   {
@@ -50,10 +50,10 @@ categories = [
     image: "seeds/images/categories/mousepads.webp",
     product: {
       name: "Mousepad Basico",
-      description: "Mousepad de gran tamaño, ",
+      description: "Mousepad de gran tamaño, color negro básico",
       price: 30000,
       stock: 20,
-      image: "seeds/images/product_mousepad.webp"
+      image: "seeds/images/products/product_mousepad.webp"
     }
   },
   {
@@ -64,7 +64,7 @@ categories = [
       description: "Funda resistente con diseño moderno.",
       price: 15000,
       stock: 50,
-      image: "seeds/images/product_funda.webp"
+      image: "seeds/images/products/product_funda.webp"
     }
   }
 ]
