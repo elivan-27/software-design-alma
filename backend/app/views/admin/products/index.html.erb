@@ -17,6 +17,7 @@
           <p class="card-text text-muted"><%= product.category.name if product.category %></p>
           <p class="card-text fw-bold">$ <%= product.formatted_price %> </p>
           <p class="card-text">Stock: <%= product.stock %></p>
+          <p>Tallas disponibles: <%= product.sizes.join(', ') %></p>
         </div>
 
         <div class="card-footer d-flex justify-content-between">

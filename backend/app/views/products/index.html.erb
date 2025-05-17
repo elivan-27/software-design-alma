@@ -15,8 +15,17 @@
               <% end %>
             <% end %>
 
-            <div class="card-body pt-4 h-15">
+            <div class="card-body pt-4 h-30">
               <h5 class="card-title text-uppercase fw-bold"><%= product.name %></h5>
+
+                <%#* HACER QUE FUNCIONE %>
+                <div class=" gap-2 mt-2">
+                  <% product.sizes.each do |size| %>
+                    <span class="badge bg-light text-dark border border-secondary rounded-pill px-3 py-1">
+                      <%= size %>
+                    </span>
+                  <% end %>
+                </div>
             </div>
 
             <p class="px-3 card-text fs-7 fw-bold color-green">$ <%= product.formatted_price %> </p>

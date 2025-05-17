@@ -18,6 +18,13 @@
     <%= f.number_field :price, step: 0.01, class: "form-control" %>
   </div>
 
+  <%= f.collection_check_boxes :sizes, Product::SIZES, :to_s, :to_s, include_hidden: false do |b| %>
+    <div class="form-check">
+      <%= b.check_box class: "form-check-input" %>
+      <%= b.label class: "form-check-label" %>
+    </div>
+  <% end %>
+
   <div class="mb-3">
     <%= f.label :stock, "Stock", class: "form-label" %>
     <%= f.number_field :stock, class: "form-control" %>
