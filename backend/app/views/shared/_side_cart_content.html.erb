@@ -1,0 +1,13 @@
+<% if current_cart.cart_items.any? %>
+  <% current_cart.cart_items.each do |item| %>
+    <div class="d-flex justify-content-between align-items-center mb-3 p-2 border rounded bg-light">
+      <div>
+        <strong><%= item.product.name %></strong><br>
+        <small class="text-muted">Cantidad: <%= item.quantity %></small>
+      </div>
+      <%= button_to '✕', cart_item_path(item), method: :delete, class: "btn btn-sm btn-outline-danger" %>
+    </div>
+  <% end %>
+<% else %>
+  <p>Tu carrito está vacío.</p>
+<% end %>
