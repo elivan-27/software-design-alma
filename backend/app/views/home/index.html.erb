@@ -93,7 +93,7 @@
 
                   <%#* HACER QUE FUNCIONE %>
                   <div class=" gap-2 mt-2">
-                    <% product.sizes.each do |size| %>
+                    <% product.sizes&.each do |size| %>
                       <span class="badge bg-light text-dark border border-secondary rounded-pill px-3 py-1">
                         <%= size %>
                       </span>
