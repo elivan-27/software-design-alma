@@ -23,6 +23,15 @@ Rails.application.routes.draw do
     end
   end
 
+  # config/routes.rb
+resources :cart_items, only: [:create, :destroy, :update]
+
+
+resource :cart, only: [:show] do
+  resources :cart_items, only: [:update, :destroy]
+end
+
+
   # Ruta para el health check
   get "up" => "rails/health#show", as: :rails_health_check
 end

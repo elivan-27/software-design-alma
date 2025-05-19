@@ -6,6 +6,8 @@ class ApplicationController < ActionController::Base
   before_action :redirect_to_default_locale, unless: -> { params[:locale].present? }
   before_action :set_locale
 
+  helper_method :current_cart
+
   def redirect_to_default_locale
     redirect_to url_for(locale: I18n.default_locale)
   end
@@ -39,4 +41,21 @@ class ApplicationController < ActionController::Base
   def load_categories
     @categories = Category.all
   end
+
+  def current_cart
+  if session[:cart_id]
+    Cart.includes(cart_items: :product).find_by(id: session[:cart_id]) || create_cart
+  else
+    create_cart
+  end
+end
+
+def create_cart
+  cart = Cart.create
+  session[:cart_id] = cart.id
+  cart
+end
+
+
+
 end
