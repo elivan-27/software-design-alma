@@ -1,10 +1,20 @@
 <% if current_cart.cart_items.any? %>
   <% current_cart.cart_items.each do |item| %>
-    <div class="d-flex justify-content-between align-items-center mb-3 p-2 border rounded bg-light">
-      <div>
+    <div class="d-flex justify-content-between align-items-center mb-3 p-2 border rounded">
+      <!-- Imagen del producto -->
+      <% if item.product.image.attached? %>
+        <%= image_tag url_for(item.product.image), class: "me-2", width: 60, height: 60, alt: item.product.name %>
+      <% else %>
+        <div class="me-2" style="width: 60px; height: 60px; background: #f0f0f0;"></div>
+      <% end %>
+
+      <!-- Información del producto -->
+      <div class="descp-item flex-grow-1 me-2">
         <strong><%= item.product.name %></strong><br>
-        <small class="text-muted">Cantidad: <%= item.quantity %></small>
+        <small class="text-muted"><%= t("quantity") %>: <%= item.quantity %></small>
       </div>
+
+      <!-- Botón eliminar -->
       <%= button_to '✕', cart_item_path(item), method: :delete, class: "btn btn-sm btn-outline-danger" %>
     </div>
   <% end %>

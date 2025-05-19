@@ -52,43 +52,7 @@
         transition: background-color 0.3s, color 0.3s;
       }
 
-      /* Estilos para el carrito lateral */
-      .side-cart {
-        position: fixed;
-        top: 0;
-        right: 0;
-        width: 360px;
-        max-width: 100%;
-        height: 100%;
-        background: white;
-        box-shadow: -2px 0 10px rgba(0,0,0,0.3);
-        transform: translateX(100%);
-        transition: transform 0.3s ease-in-out;
-        z-index: 1055;
-        display: flex;
-        flex-direction: column;
-      }
-
-      .side-cart.open {
-        transform: translateX(0);
-      }
-
-      .side-cart.hidden {
-        display: none;
-      }
-
-      .cart-button {
-        display: block;
-        width: 100%;
-        text-align: center;
-        background-color: black;
-        color: white;
-        padding: 12px;
-        text-transform: uppercase;
-        font-weight: bold;
-        border-radius: 25px;
-        text-decoration: none;
-      }
+      
     </style>
     <script>
       (function() {
@@ -111,19 +75,18 @@
     <!-- Panel lateral del carrito -->
     <div id="side-cart" class="side-cart hidden">
       <div class="side-cart-header d-flex justify-content-between align-items-center p-3 border-bottom">
-        <h5 class="mb-0"><strong>CART</strong> (<span id="cart-count"><%= current_cart.cart_items.sum(:quantity) rescue 0 %></span> items)</h5>
-        <button id="cart-close" class="btn-close" aria-label="Close"></button>
+        <h5 class="mb-0"><strong><%= t("cart") %></strong> (<span id="cart-count"><%= current_cart.cart_items.sum(:quantity) rescue 0 %></span> <%= t("items") %>)</h5>
+        <button id="cart-close" class="btn-close text-white" aria-label="Close"></button>
       </div>
 
       <div class="side-cart-content p-3">
         <%= render partial: 'shared/side_cart_content' %>
-
       </div>
 
       <div class="side-cart-footer p-3 border-top">
-        <%= link_to "SHOP ALL", categories_path(locale: I18n.locale), class: "cart-button mb-2" %>
-        <%= link_to "HOME", root_path(locale: I18n.locale), class: "cart-button mb-2" %>
-        <%= link_to "SHOP", categories_path(locale: I18n.locale), class: "cart-button" %>
+        <%= link_to t("shop_all"), categories_path(locale: I18n.locale), class: "cart-button mb-2" %>
+        <%= link_to t("home"), root_path(locale: I18n.locale), class: "cart-button mb-2" %>
+        <%= link_to t("shop"), categories_path(locale: I18n.locale), class: "cart-button" %>
       </div>
     </div>
 
