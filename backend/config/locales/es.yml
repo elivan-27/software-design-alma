@@ -121,3 +121,11 @@ es:
   #TODO: Productos
   add_to_cart: Añadir al carrito
   no_products: Esta categoría no tiene productos disponibles
+
+  #TODO: Carrito
+  cart: CARRITO
+  items: artículo
+  quantity: cantidad
+  shop_all: COMPRAR TODO
+  home: INICIO
+  shop: TIENDA

@@ -1,5 +1,4 @@
 class Product < ApplicationRecord
-  # * Se define la relación entre el modelo Product y el modelo Category
   belongs_to :category
   has_one_attached :image
 
@@ -13,6 +12,9 @@ class Product < ApplicationRecord
   # * Validar que el stock sea un número mayor o igual a 0
   validates :stock, numericality: { greater_than_or_equal_to: 0 }
   validates :name, :price, :stock, :category_id, :image, presence: true
+
+  # *
+  has_many :cart_items
 
   def formatted_price
     ActionController::Base.helpers.number_to_currency(price, unit: "", separator: ",", delimiter: ".", precision: 0)
