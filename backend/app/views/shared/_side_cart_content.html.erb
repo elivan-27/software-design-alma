@@ -11,7 +11,10 @@
       <!-- Información del producto -->
       <div class="descp-item flex-grow-1 me-2">
         <strong><%= item.product.name %></strong><br>
-        <small class="text-muted"><%= t("quantity") %>: <%= item.quantity %></small>
+        <small class="text-muted"><%= t("quantity") %>: <%= item.quantity %></small><br>
+        <% if item.size.present? %>
+          <small class="text-muted"><%= t("size") %>: <%= item.size %></small>
+        <% end %>
       </div>
 
       <!-- Botón eliminar -->
