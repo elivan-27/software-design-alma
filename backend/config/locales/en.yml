@@ -120,6 +120,7 @@ en:
   #TODO: Productos
   add_to_cart: Add to cart
   no_products: This category has no products available
+  show_more: Show more
 
   #TODO: Carrito
   cart: CART

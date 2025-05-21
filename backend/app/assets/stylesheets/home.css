@@ -302,3 +302,7 @@ body[data-theme="dark"] .inverse-box {
 .ct {
   min-height: 4rem;
 }
+
+.ver-mas:hover {
+  color: white;
+}
