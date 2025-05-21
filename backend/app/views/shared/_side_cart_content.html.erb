@@ -9,8 +9,9 @@
       <% end %>
 
       <!-- Información del producto -->
-      <div class="descp-item flex-grow-1 me-2">
+      <div class="descp-item flex-grow-1 me-2" id="item-cart">
         <strong><%= item.product.name %></strong><br>
+        <strong class="color-green"><%= item.product.formatted_price %></strong><br>
         <small class="text-muted"><%= t("quantity") %>: <%= item.quantity %></small><br>
         <% if item.size.present? %>
           <small class="text-muted"><%= t("size") %>: <%= item.size %></small>
@@ -22,5 +23,7 @@
     </div>
   <% end %>
 <% else %>
-  <p>Tu carrito está vacío.</p>
+  <p>
+    <%= t("empty_cart") %>
+  </p>
 <% end %>

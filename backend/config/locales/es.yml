@@ -129,3 +129,9 @@ es:
   home: INICIO
   shop: TIENDA
   size: Talla
+  size_obligatory: Debes seleccionar al menos una talla.
+  add_product: Producto agregado al carrito
+  remove_product: Producto eliminado del carrito
+  empty_cart: El carrito está vacío.
+  your_cart: Tu Carrito de Compras
+  Checkout: Verificar

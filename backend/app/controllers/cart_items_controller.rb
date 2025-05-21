@@ -4,6 +4,11 @@ class CartItemsController < ApplicationController
     product = Product.find(params[:product_id])
     selected_sizes = Array(params[:sizes]) # Asegura que sea array aunque venga nil
 
+      if selected_sizes.empty?
+        redirect_back fallback_location: root_path, alert: t("size_obligatory")
+        return
+      end
+
     selected_sizes.each do |size|
       item = cart.cart_items.find_by(product_id: product.id, size: size)
 
@@ -16,13 +21,13 @@ class CartItemsController < ApplicationController
       item.save
     end
 
-    redirect_back fallback_location: root_path, notice: 'Productos agregados al carrito.'
+    redirect_back fallback_location: root_path
   end
 
   def destroy
     item = current_cart.cart_items.find(params[:id])
     item.destroy
-    redirect_back fallback_location: root_path, notice: 'Producto eliminado del carrito.'
+    redirect_back fallback_location: root_path
   end
 
   def show

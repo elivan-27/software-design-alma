@@ -129,3 +129,9 @@ en:
   home: HOME
   shop: SHOP
   size: Size
+  size_obligatory: You must select at least one size.
+  add_product: product added to cart
+  remove_product: product removed from cart
+  empty_cart: Your cart is empty
+  your_cart: Your Shopping Cart
+  checkout: Checkout

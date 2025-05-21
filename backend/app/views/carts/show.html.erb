@@ -1,5 +1,7 @@
 <div class="container my-5">
-  <h2 class="mb-4">Tu Carrito de Compras</h2>
+  <h2 class="mb-4">
+    <%= t("your_cart") %>
+  </h2>
 
   <% if @cart.cart_items.any? %>
     <table class="table table-bordered align-middle">
@@ -48,7 +50,8 @@
 
   <% else %>
     <div class="alert alert-info">
-      Tu carrito está vacío. <%= link_to "Ver productos", products_path %>
+      <%= t("empty_cart") %>
+      <%= link_to "Ver productos", products_path %>
     </div>
   <% end %>
 </div>
