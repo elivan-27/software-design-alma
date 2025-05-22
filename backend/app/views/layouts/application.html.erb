@@ -31,6 +31,10 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
     <%= javascript_importmap_tags %>
 
+    <% if flash[:item_added] %>
+      <meta name="cart-item-added" content="true">
+    <% end %>
+
     <%# Control de temas (Modo oscuro y modo claro) %>
     <style>
       html[data-theme="dark"],
