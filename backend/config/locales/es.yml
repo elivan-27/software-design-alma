@@ -129,3 +129,11 @@ es:
   shop_all: COMPRAR TODO
   home: INICIO
   shop: TIENDA
+
+  #TODO: Recuperar contraseña
+  forgot_password_title: "¿Olvidaste tu contraseña?"
+  remembered_your_password: "¿Recordaste tu contraseña?"
+  send_reset_password_instructions: "Enviar correo"
+  reset_instructions_note: "Enviaremos un correo electrónico de recuperación"
+  sign_in: "Inicia sesión"
+
