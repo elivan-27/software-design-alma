@@ -109,7 +109,7 @@
   transition: z-index 0.3s;
 }
 
-body[data-theme="dark"] .bg-box{
+body[data-theme="dark"] .bg-box {
   background-color: white;
   color: black;
 }
@@ -120,7 +120,7 @@ body[data-theme="dark"] .bg-box{
   z-index: 1;
 }
 
-body[data-theme="light"] .bg-box{
+body[data-theme="light"] .bg-box {
   background-color: white;
   color: black;
 }
@@ -139,7 +139,7 @@ body[data-theme="light"] .bg-box{
 /* ☀️ Estilo para modo claro */
 body[data-theme="dark"] .inverse-box {
   background-color: white;
-  color: #222; 
+  color: #222;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
@@ -178,8 +178,8 @@ body[data-theme="dark"] .inverse-box {
 }
 
 .scroll-wrapper {
-  -ms-overflow-style: none;  /* IE y Edge */
-  scrollbar-width: none;     /* Firefox */
+  -ms-overflow-style: none; /* IE y Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
 @media (min-width: 768px) {
@@ -287,7 +287,6 @@ body[data-theme="dark"] .inverse-box {
 
 .cssbuttons-io-button:hover .icon svg {
   transform: translateX(0.1em);
-
 }
 
 .cssbuttons-io-button:active .icon {
@@ -296,6 +295,14 @@ body[data-theme="dark"] .inverse-box {
 
 .click:hover {
   .icon {
-  width: calc(100% - 0.6em);
+    width: calc(100% - 0.6em);
+  }
 }
+
+.ct {
+  min-height: 4rem;
+}
+
+.ver-mas:hover {
+  color: white;
 }

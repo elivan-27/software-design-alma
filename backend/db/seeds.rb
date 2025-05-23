@@ -31,6 +31,7 @@ categories = [
       description: "Camiseta 100% algodón con estampado exclusivo.",
       price: 40000,
       stock: 30,
+      sizes: ["XS", "S", "M", "L", "XL"],
       image: "seeds/images/products/product_camiseta.webp"
     }
   },
@@ -42,6 +43,7 @@ categories = [
       description: "Taza personalizada con tu diseño.",
       price: 20000,
       stock: 40,
+      sizes: ["MEDIUM", "BIG"],
       image: "seeds/images/products/product_taza.webp"
     }
   },
@@ -53,6 +55,7 @@ categories = [
       description: "Mousepad de gran tamaño, color negro básico",
       price: 30000,
       stock: 20,
+      sizes: ["MEDIUM", "BIG"],
       image: "seeds/images/products/product_mousepad.webp"
     }
   },
@@ -64,6 +67,7 @@ categories = [
       description: "Funda resistente con diseño moderno.",
       price: 15000,
       stock: 50,
+      sizes: ["MEDIUM", "BIG"],
       image: "seeds/images/products/product_funda.webp"
     }
   }
@@ -91,6 +95,7 @@ categories.each do |data|
     product.description = product_data[:description]
     product.price = product_data[:price]
     product.stock = product_data[:stock]
+    product.sizes = product_data[:sizes] # 🟢 Asignamos las tallas
     product_image_path = Rails.root.join("db", product_data[:image])
 
     if File.exist?(product_image_path)

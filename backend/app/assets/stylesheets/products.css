@@ -1,5 +1,5 @@
-.h-15 {
-  height: 15%;
+.h-40 {
+  height: 40%;
 }
 
 .color-green {
@@ -31,7 +31,6 @@
   transform: scale(1.2); /* Zoom hacia dentro */
 }
 
-
 /* Boton de agregar al carrito */
 .button {
   width: 100%;
@@ -45,7 +44,7 @@
   justify-content: center;
   cursor: pointer;
   box-shadow: 1px 3px 0px #1e7e34; /* Sombra en tono oscuro del verde */
-  transition-duration: .3s;
+  transition-duration: 0.3s;
 }
 
 .cartIcon {
@@ -58,7 +57,11 @@
 }
 
 .button:active {
-  transform: translate(2px ,0px);
+  transform: translate(2px, 0px);
   box-shadow: 0px 1px 0px #1e7e34;
   padding-bottom: 1px;
+}
+
+.min-h {
+  min-height: 5rem;
 }

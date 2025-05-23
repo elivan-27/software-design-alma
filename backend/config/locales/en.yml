@@ -120,6 +120,7 @@ en:
   #TODO: Productos
   add_to_cart: Add to cart
   no_products: This category has no products available
+  show_more: Show more
 
   #TODO: Carrito
   cart: CART
@@ -128,3 +129,8 @@ en:
   shop_all: SHOP ALL
   home: HOME
   shop: SHOP
+  size: Size
+  size_obligatory: You must select at least one size.
+  empty_cart: Your cart is empty
+  your_cart: Your Shopping Cart
+  checkout: Checkout

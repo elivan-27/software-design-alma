@@ -48,7 +48,7 @@ es:
             address:
               blank: "La dirección es obligatorio"
             email:
-              blank: "El correo electrónico es obligatorio" 
+              blank: "El correo electrónico es obligatorio"
             password:
               blank: "La contraseña es obligatoria"
         product:
@@ -66,7 +66,6 @@ es:
               blank: "La categoría del producto es obligatoria"
             image:
               blank: "La imagen del producto es obligatoria"
-
 
   #TODO: Titulo
   title: Diseños Alma
@@ -121,6 +120,7 @@ es:
   #TODO: Productos
   add_to_cart: Añadir al carrito
   no_products: Esta categoría no tiene productos disponibles
+  show_more: Ver más
 
   #TODO: Carrito
   cart: CARRITO
@@ -129,3 +129,8 @@ es:
   shop_all: COMPRAR TODO
   home: INICIO
   shop: TIENDA
+  size: Talla
+  size_obligatory: Debes seleccionar al menos una talla.
+  empty_cart: El carrito está vacío.
+  your_cart: Tu Carrito de Compras
+  checkout: Verificar
