@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+/*import 'package:flutter/material.dart';
 
 class ProductsView extends StatelessWidget {
   final String categoryName;
@@ -180,4 +180,4 @@ class ProductsView extends StatelessWidget {
         ];
     }
   }
-}
+}*/

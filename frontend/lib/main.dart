@@ -1,5 +1,47 @@
 import 'package:flutter/material.dart';
-import 'feature/views/categories_view.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'feature/products/bloc/products_bloc.dart';
+import 'feature/products/views/product_view.dart';
+
+import 'feature/views/failure_view.dart';
+import 'feature/views/loading_view.dart';
+
+
+void main() {
+  runApp(Sena());
+}
+
+class Sena extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (context) => HomeBloc(),
+      child: MaterialApp(
+        home: BlocBuilder<HomeBloc, HomeState>(
+          builder: (context, state) {
+            if (state is HomeLoadInProgress) {
+              return LoadingView();
+            } else if (state is HomeLoadFailure) {
+              return FailureView();
+            } else if (state is HomeLoadSuccess) {
+              return SuccessView();
+            }
+            return InitialView();
+          },
+        ),
+      ),
+    );
+  }
+}
+
+
+
+
+
+/*import 'package:design_alma/feature/products/views/product_view.dart';
+import 'package:flutter/material.dart';
+//import 'feature/views/categories_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -50,7 +92,7 @@ class HomeView extends StatelessWidget {
           onPressed: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => const CategoriesView()),
+              MaterialPageRoute(builder: (context) => const ProductsView()),
             );
           },
         ),
@@ -58,3 +100,4 @@ class HomeView extends StatelessWidget {
     );
   }
 }
+*/

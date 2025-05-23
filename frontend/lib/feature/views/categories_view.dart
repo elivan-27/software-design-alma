@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+/*import 'package:flutter/material.dart';
 import 'products_view.dart';
 
 class CategoriesView extends StatelessWidget {
@@ -90,4 +90,4 @@ class CategoriesView extends StatelessWidget {
       ),
     );
   }
-}
+}*/
